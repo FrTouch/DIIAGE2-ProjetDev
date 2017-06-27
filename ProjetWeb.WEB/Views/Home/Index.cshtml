@@ -7,7 +7,7 @@
     <p class="lead">Bienvenue sur votre système de réservation.</p>
     <p>Pour vous connecter, cliquez sur l'option "Se connecter"...</p>
     <input type="text" placeholder="Username" id="txtLogin" />
-    <input type="text" placeholder="Password" id="txtPassword" />
+    <input type="password" placeholder="Password" id="txtPassword" />
     <input type="button" value="valider" id="btnValue" onclick="login()" />
 <!--    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Se connecter &raquo;</a></p> -->
 </div>
@@ -34,6 +34,7 @@
     </div> 
 </div> -->
 
+<!-- Script appelé par le bouton -->
 <script type="text/javascript">
     function login()
     {
@@ -41,9 +42,12 @@
         var monPass = $('#txtPassword').val();
 
         $.ajax({
+            // Home ==> Contrôleur qui va chercher dans la fonction Login
             url: "/Home/Login",
+            // On rajoute un & avant chaque nouveau paramètre sauf le premier
             data: "pLogin=" + monLogin + "&pPassword=" + monPass,
             type: 'POST',
+            // data représente les données retournées par le serveur
             success: function (data)
             {
                 //alert(data); // Affiche l'int de retour de la fonction

@@ -27,6 +27,12 @@ namespace ProjetWeb.WEB.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Méthode de vérification du compte lors de la connexion
+        /// </summary>
+        /// <param name="pLogin">Adresse mail pour la connexion</param>
+        /// <param name="pPassword">Mot de passe de l'utilisateur</param>
+        /// <returns>0 ou 1 selon le succès de la fonction</returns>
         public int Login(string pLogin, string pPassword)
         {
             ProjetWeb.DAL.Repository r = new DAL.Repository();
