@@ -26,5 +26,21 @@ namespace ProjetWeb.WEB.Controllers
 
             return View();
         }
+
+        public int Login(string pLogin, string pPassword)
+        {
+            ProjetWeb.DAL.Repository r = new DAL.Repository();
+
+            if (r.getUtilisateur(pLogin,pPassword) == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return 1;
+            }
+            
+        }
+
     }
 }
