@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ProjetWeb.DAL.Reservation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.date_debut_resa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_fin_resa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_resa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.purge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Utilisateur.nom)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_debut_resa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_fin_resa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_resa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.purge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Utilisateur.nom)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

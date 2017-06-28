@@ -1,0 +1,74 @@
+﻿@model ProjetWeb.DAL.Ressource
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ressource</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dispo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dispo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date_achat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date_achat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.qr_code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.qr_code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.purge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.purge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type.nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type.nom)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
