@@ -14,13 +14,9 @@ namespace ProjetWeb.DAL
     
     public partial class Ligne_resa
     {
-        public int reservation_id { get; set; }
-        public int ressource_id { get; set; }
+        public int id { get; set; }
         public System.DateTime date_debut { get; set; }
         public System.DateTime date_fin { get; set; }
         public bool purge { get; set; }
-    
-        public virtual Reservation Reservation { get; set; }
-        public virtual Ressource Ressource { get; set; }
     }
 }

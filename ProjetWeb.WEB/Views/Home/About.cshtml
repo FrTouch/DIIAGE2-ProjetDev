@@ -44,7 +44,7 @@
                 <p>Pour ajouter une nouvelle réservation, cliquez sur le bouton <strong>Réserver</strong>...</p>
 
                 @*<p align="center"><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" onclick="formulaire()"><strong>Réserver</strong></button></p>*@
-                <p align="center"><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" onclick="formulaire()"><strong>Réserver</strong></button></p>
+                <p align="center"><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" onclick="ajouterReservation()"><strong>Réserver</strong></button></p>
 
                     <!-- Affichage du popup contenant le formulaire de réservation -->
                     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -60,7 +60,7 @@
                                    
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn" onclick="ajouterReservation()">Ajouter une réservation</button>
+                                    @*<button type="button" class="btn" onclick="ajouterReservation()">Ajouter une réservation</button>*@
                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
                                     <button type="button" class="btn btn-success">Valider</button>
                                 </div>
@@ -86,8 +86,8 @@
              // data représente les données retournées par le serveur
              success: function (data) {
 
-                 //$('#formulaire').html(data);
-                 $('#formulaire').append(data);
+                 $('#formulaire').html(data);
+                 //$('#formulaire').append(data);
              }
          })
      }

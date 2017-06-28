@@ -30,8 +30,8 @@ namespace ProjetWeb.DAL
         public virtual DbSet<Profil> Profil { get; set; }
         public virtual DbSet<Reservation> Reservation { get; set; }
         public virtual DbSet<Ressource> Ressource { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Type> Type { get; set; }
         public virtual DbSet<Utilisateur> Utilisateur { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

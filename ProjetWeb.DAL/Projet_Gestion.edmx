@@ -17,16 +17,14 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Ligne_resa">
           <Key>
-            <PropertyRef Name="reservation_id" />
-            <PropertyRef Name="ressource_id" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="reservation_id" Type="int" Nullable="false" />
-          <Property Name="ressource_id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="date_debut" Type="date" Nullable="false" />
           <Property Name="date_fin" Type="date" Nullable="false" />
           <Property Name="purge" Type="bit" Nullable="false" />
@@ -35,14 +33,14 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Reservation">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="utilisateur_id" Type="int" Nullable="false" />
           <Property Name="date_resa" Type="date" Nullable="false" />
           <Property Name="purge" Type="bit" Nullable="false" />
@@ -51,7 +49,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="type_id" Type="int" Nullable="false" />
           <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="dispo" Type="bit" Nullable="false" />
@@ -74,7 +72,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="description" Type="varchar(max)" />
           <Property Name="purge" Type="bit" Nullable="false" />
@@ -83,7 +81,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="profil_id" Type="int" Nullable="false" />
           <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="prenom" Type="varchar" MaxLength="50" Nullable="false" />
@@ -114,30 +112,6 @@
             </Principal>
             <Dependent Role="Droit">
               <PropertyRef Name="profil_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Ligne_resa_Reservation">
-          <End Role="Reservation" Type="Self.Reservation" Multiplicity="1" />
-          <End Role="Ligne_resa" Type="Self.Ligne_resa" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Reservation">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Ligne_resa">
-              <PropertyRef Name="reservation_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Ligne_resa_Ressource">
-          <End Role="Ressource" Type="Self.Ressource" Multiplicity="1" />
-          <End Role="Ligne_resa" Type="Self.Ligne_resa" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Ressource">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Ligne_resa">
-              <PropertyRef Name="ressource_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -195,14 +169,6 @@
             <End Role="Profil" EntitySet="Profil" />
             <End Role="Droit" EntitySet="Droit" />
           </AssociationSet>
-          <AssociationSet Name="FK_Ligne_resa_Reservation" Association="Self.FK_Ligne_resa_Reservation">
-            <End Role="Reservation" EntitySet="Reservation" />
-            <End Role="Ligne_resa" EntitySet="Ligne_resa" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Ligne_resa_Ressource" Association="Self.FK_Ligne_resa_Ressource">
-            <End Role="Ressource" EntitySet="Ressource" />
-            <End Role="Ligne_resa" EntitySet="Ligne_resa" />
-          </AssociationSet>
           <AssociationSet Name="FK_Reservation_Utilisateur" Association="Self.FK_Reservation_Utilisateur">
             <End Role="Utilisateur" EntitySet="Utilisateur" />
             <End Role="Reservation" EntitySet="Reservation" />
@@ -220,186 +186,82 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Projet_GestionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Projet_GestionEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Fonctionnalite" EntityType="Projet_GestionModel.Fonctionnalite" />
+          <EntitySet Name="Ligne_resa" EntityType="Projet_GestionModel.Ligne_resa" />
+          <EntitySet Name="Profil" EntityType="Projet_GestionModel.Profil" />
+          <EntitySet Name="Reservation" EntityType="Projet_GestionModel.Reservation" />
+          <EntitySet Name="Ressource" EntityType="Projet_GestionModel.Ressource" />
+          <EntitySet Name="sysdiagrams" EntityType="Projet_GestionModel.sysdiagrams" />
+          <EntitySet Name="Type" EntityType="Projet_GestionModel.Type" />
+          <EntitySet Name="Utilisateur" EntityType="Projet_GestionModel.Utilisateur" />
+          <AssociationSet Name="FK_Utilisateur_Profil" Association="Projet_GestionModel.FK_Utilisateur_Profil">
+            <End Role="Profil" EntitySet="Profil" />
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservation_Utilisateur" Association="Projet_GestionModel.FK_Reservation_Utilisateur">
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+            <End Role="Reservation" EntitySet="Reservation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ressource_Type" Association="Projet_GestionModel.FK_Ressource_Type">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="Ressource" EntitySet="Ressource" />
+          </AssociationSet>
+          <AssociationSet Name="Droit" Association="Projet_GestionModel.Droit">
+            <End Role="Fonctionnalite" EntitySet="Fonctionnalite" />
+            <End Role="Profil" EntitySet="Profil" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Fonctionnalite">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Profil" Relationship="Self.Droit" FromRole="Fonctionnalite" ToRole="Profil" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Profil" Relationship="Projet_GestionModel.Droit" FromRole="Fonctionnalite" ToRole="Profil" />
         </EntityType>
         <EntityType Name="Ligne_resa">
           <Key>
-            <PropertyRef Name="reservation_id" />
-            <PropertyRef Name="ressource_id" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="reservation_id" Type="Int32" Nullable="false" />
-          <Property Name="ressource_id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="date_debut" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="date_fin" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="purge" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Reservation" Relationship="Self.FK_Ligne_resa_Reservation" FromRole="Ligne_resa" ToRole="Reservation" />
-          <NavigationProperty Name="Ressource" Relationship="Self.FK_Ligne_resa_Ressource" FromRole="Ligne_resa" ToRole="Ressource" />
         </EntityType>
         <EntityType Name="Profil">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Utilisateur" Relationship="Self.FK_Utilisateur_Profil" FromRole="Profil" ToRole="Utilisateur" />
-          <NavigationProperty Name="Fonctionnalite" Relationship="Self.Droit" FromRole="Profil" ToRole="Fonctionnalite" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Utilisateur" Relationship="Projet_GestionModel.FK_Utilisateur_Profil" FromRole="Profil" ToRole="Utilisateur" />
+          <NavigationProperty Name="Fonctionnalite" Relationship="Projet_GestionModel.Droit" FromRole="Profil" ToRole="Fonctionnalite" />
         </EntityType>
         <EntityType Name="Reservation">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="utilisateur_id" Type="Int32" Nullable="false" />
           <Property Name="date_resa" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="purge" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Ligne_resa" Relationship="Self.FK_Ligne_resa_Reservation" FromRole="Reservation" ToRole="Ligne_resa" />
-          <NavigationProperty Name="Utilisateur" Relationship="Self.FK_Reservation_Utilisateur" FromRole="Reservation" ToRole="Utilisateur" />
+          <NavigationProperty Name="Utilisateur" Relationship="Projet_GestionModel.FK_Reservation_Utilisateur" FromRole="Reservation" ToRole="Utilisateur" />
         </EntityType>
         <EntityType Name="Ressource">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="type_id" Type="Int32" Nullable="false" />
-          <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="dispo" Type="Boolean" Nullable="false" />
-          <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="date_achat" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="qr_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="qr_code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="purge" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Ligne_resa" Relationship="Self.FK_Ligne_resa_Ressource" FromRole="Ressource" ToRole="Ligne_resa" />
-          <NavigationProperty Name="Type" Relationship="Self.FK_Ressource_Type" FromRole="Ressource" ToRole="Type" />
+          <NavigationProperty Name="Type" Relationship="Projet_GestionModel.FK_Ressource_Type" FromRole="Ressource" ToRole="Type" />
         </EntityType>
-        <EntityType Name="Type">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="purge" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Ressource" Relationship="Self.FK_Ressource_Type" FromRole="Type" ToRole="Ressource" />
-        </EntityType>
-        <EntityType Name="Utilisateur">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="profil_id" Type="Int32" Nullable="false" />
-          <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="last_login" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="deconnexion" Type="Int32" Nullable="false" />
-          <Property Name="purge" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Profil" Relationship="Self.FK_Utilisateur_Profil" FromRole="Utilisateur" ToRole="Profil" />
-          <NavigationProperty Name="Reservation" Relationship="Self.FK_Reservation_Utilisateur" FromRole="Utilisateur" ToRole="Reservation" />
-        </EntityType>
-        <Association Name="FK_Ligne_resa_Reservation">
-          <End Role="Reservation" Type="Self.Reservation" Multiplicity="1" />
-          <End Role="Ligne_resa" Type="Self.Ligne_resa" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Reservation">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Ligne_resa">
-              <PropertyRef Name="reservation_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Ligne_resa_Ressource">
-          <End Role="Ressource" Type="Self.Ressource" Multiplicity="1" />
-          <End Role="Ligne_resa" Type="Self.Ligne_resa" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Ressource">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Ligne_resa">
-              <PropertyRef Name="ressource_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Utilisateur_Profil">
-          <End Role="Profil" Type="Self.Profil" Multiplicity="1" />
-          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Profil">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Utilisateur">
-              <PropertyRef Name="profil_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reservation_Utilisateur">
-          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="1" />
-          <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Utilisateur">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Reservation">
-              <PropertyRef Name="utilisateur_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Ressource_Type">
-          <End Role="Type" Type="Self.Type" Multiplicity="1" />
-          <End Role="Ressource" Type="Self.Ressource" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Type">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Ressource">
-              <PropertyRef Name="type_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Droit">
-          <End Role="Fonctionnalite" Type="Self.Fonctionnalite" Multiplicity="*" />
-          <End Role="Profil" Type="Self.Profil" Multiplicity="*" />
-        </Association>
-        <EntityContainer Name="Projet_GestionEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Fonctionnalite" EntityType="Self.Fonctionnalite" />
-          <EntitySet Name="Ligne_resa" EntityType="Self.Ligne_resa" />
-          <EntitySet Name="Profil" EntityType="Self.Profil" />
-          <EntitySet Name="Reservation" EntityType="Self.Reservation" />
-          <EntitySet Name="Ressource" EntityType="Self.Ressource" />
-          <EntitySet Name="Type" EntityType="Self.Type" />
-          <EntitySet Name="Utilisateur" EntityType="Self.Utilisateur" />
-          <AssociationSet Name="FK_Ligne_resa_Reservation" Association="Self.FK_Ligne_resa_Reservation">
-            <End Role="Reservation" EntitySet="Reservation" />
-            <End Role="Ligne_resa" EntitySet="Ligne_resa" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Ligne_resa_Ressource" Association="Self.FK_Ligne_resa_Ressource">
-            <End Role="Ressource" EntitySet="Ressource" />
-            <End Role="Ligne_resa" EntitySet="Ligne_resa" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Utilisateur_Profil" Association="Self.FK_Utilisateur_Profil">
-            <End Role="Profil" EntitySet="Profil" />
-            <End Role="Utilisateur" EntitySet="Utilisateur" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reservation_Utilisateur" Association="Self.FK_Reservation_Utilisateur">
-            <End Role="Utilisateur" EntitySet="Utilisateur" />
-            <End Role="Reservation" EntitySet="Reservation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Ressource_Type" Association="Self.FK_Ressource_Type">
-            <End Role="Type" EntitySet="Type" />
-            <End Role="Ressource" EntitySet="Ressource" />
-          </AssociationSet>
-          <AssociationSet Name="Droit" Association="Self.Droit">
-            <End Role="Fonctionnalite" EntitySet="Fonctionnalite" />
-            <End Role="Profil" EntitySet="Profil" />
-          </AssociationSet>
-          <EntitySet Name="sysdiagrams" EntityType="Projet_GestionModel.sysdiagrams" />
-        </EntityContainer>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -410,6 +272,72 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
+        <EntityType Name="Type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="purge" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Ressource" Relationship="Projet_GestionModel.FK_Ressource_Type" FromRole="Type" ToRole="Ressource" />
+        </EntityType>
+        <EntityType Name="Utilisateur">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="profil_id" Type="Int32" Nullable="false" />
+          <Property Name="nom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="prenom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="last_login" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="deconnexion" Type="Int32" Nullable="false" />
+          <Property Name="purge" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Profil" Relationship="Projet_GestionModel.FK_Utilisateur_Profil" FromRole="Utilisateur" ToRole="Profil" />
+          <NavigationProperty Name="Reservation" Relationship="Projet_GestionModel.FK_Reservation_Utilisateur" FromRole="Utilisateur" ToRole="Reservation" />
+        </EntityType>
+        <Association Name="FK_Utilisateur_Profil">
+          <End Type="Projet_GestionModel.Profil" Role="Profil" Multiplicity="1" />
+          <End Type="Projet_GestionModel.Utilisateur" Role="Utilisateur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profil">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Utilisateur">
+              <PropertyRef Name="profil_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservation_Utilisateur">
+          <End Type="Projet_GestionModel.Utilisateur" Role="Utilisateur" Multiplicity="1" />
+          <End Type="Projet_GestionModel.Reservation" Role="Reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Reservation">
+              <PropertyRef Name="utilisateur_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ressource_Type">
+          <End Type="Projet_GestionModel.Type" Role="Type" Multiplicity="1" />
+          <End Type="Projet_GestionModel.Ressource" Role="Ressource" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Ressource">
+              <PropertyRef Name="type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Droit">
+          <End Type="Projet_GestionModel.Fonctionnalite" Role="Fonctionnalite" Multiplicity="*" />
+          <End Type="Projet_GestionModel.Profil" Role="Profil" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -419,87 +347,53 @@
           <EntitySetMapping Name="Fonctionnalite">
             <EntityTypeMapping TypeName="Projet_GestionModel.Fonctionnalite">
               <MappingFragment StoreEntitySet="Fonctionnalite">
-                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Ligne_resa">
             <EntityTypeMapping TypeName="Projet_GestionModel.Ligne_resa">
               <MappingFragment StoreEntitySet="Ligne_resa">
-                <ScalarProperty Name="reservation_id" ColumnName="reservation_id" />
-                <ScalarProperty Name="ressource_id" ColumnName="ressource_id" />
-                <ScalarProperty Name="date_debut" ColumnName="date_debut" />
-                <ScalarProperty Name="date_fin" ColumnName="date_fin" />
                 <ScalarProperty Name="purge" ColumnName="purge" />
+                <ScalarProperty Name="date_fin" ColumnName="date_fin" />
+                <ScalarProperty Name="date_debut" ColumnName="date_debut" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Profil">
             <EntityTypeMapping TypeName="Projet_GestionModel.Profil">
               <MappingFragment StoreEntitySet="Profil">
-                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Reservation">
             <EntityTypeMapping TypeName="Projet_GestionModel.Reservation">
               <MappingFragment StoreEntitySet="Reservation">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="utilisateur_id" ColumnName="utilisateur_id" />
-                <ScalarProperty Name="date_resa" ColumnName="date_resa" />
                 <ScalarProperty Name="purge" ColumnName="purge" />
+                <ScalarProperty Name="date_resa" ColumnName="date_resa" />
+                <ScalarProperty Name="utilisateur_id" ColumnName="utilisateur_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Ressource">
             <EntityTypeMapping TypeName="Projet_GestionModel.Ressource">
               <MappingFragment StoreEntitySet="Ressource">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="type_id" ColumnName="type_id" />
-                <ScalarProperty Name="nom" ColumnName="nom" />
-                <ScalarProperty Name="dispo" ColumnName="dispo" />
-                <ScalarProperty Name="description" ColumnName="description" />
-                <ScalarProperty Name="date_achat" ColumnName="date_achat" />
+                <ScalarProperty Name="purge" ColumnName="purge" />
                 <ScalarProperty Name="qr_code" ColumnName="qr_code" />
-                <ScalarProperty Name="purge" ColumnName="purge" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Type">
-            <EntityTypeMapping TypeName="Projet_GestionModel.Type">
-              <MappingFragment StoreEntitySet="Type">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="date_achat" ColumnName="date_achat" />
                 <ScalarProperty Name="description" ColumnName="description" />
-                <ScalarProperty Name="purge" ColumnName="purge" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Utilisateur">
-            <EntityTypeMapping TypeName="Projet_GestionModel.Utilisateur">
-              <MappingFragment StoreEntitySet="Utilisateur">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="profil_id" ColumnName="profil_id" />
+                <ScalarProperty Name="dispo" ColumnName="dispo" />
                 <ScalarProperty Name="nom" ColumnName="nom" />
-                <ScalarProperty Name="prenom" ColumnName="prenom" />
-                <ScalarProperty Name="mail" ColumnName="mail" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="last_login" ColumnName="last_login" />
-                <ScalarProperty Name="deconnexion" ColumnName="deconnexion" />
-                <ScalarProperty Name="purge" ColumnName="purge" />
+                <ScalarProperty Name="type_id" ColumnName="type_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="Droit" TypeName="Projet_GestionModel.Droit" StoreEntitySet="Droit">
-            <EndProperty Name="Fonctionnalite">
-              <ScalarProperty Name="id" ColumnName="fonctionnalite_id" />
-            </EndProperty>
-            <EndProperty Name="Profil">
-              <ScalarProperty Name="id" ColumnName="profil_id" />
-            </EndProperty>
-          </AssociationSetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="Projet_GestionModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -511,6 +405,39 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Type">
+            <EntityTypeMapping TypeName="Projet_GestionModel.Type">
+              <MappingFragment StoreEntitySet="Type">
+                <ScalarProperty Name="purge" ColumnName="purge" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Utilisateur">
+            <EntityTypeMapping TypeName="Projet_GestionModel.Utilisateur">
+              <MappingFragment StoreEntitySet="Utilisateur">
+                <ScalarProperty Name="purge" ColumnName="purge" />
+                <ScalarProperty Name="deconnexion" ColumnName="deconnexion" />
+                <ScalarProperty Name="last_login" ColumnName="last_login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="prenom" ColumnName="prenom" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="profil_id" ColumnName="profil_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Droit" TypeName="Projet_GestionModel.Droit" StoreEntitySet="Droit">
+            <EndProperty Name="Profil">
+              <ScalarProperty Name="id" ColumnName="profil_id" />
+            </EndProperty>
+            <EndProperty Name="Fonctionnalite">
+              <ScalarProperty Name="id" ColumnName="fonctionnalite_id" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

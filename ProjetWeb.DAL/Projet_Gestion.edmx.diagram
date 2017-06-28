@@ -5,20 +5,18 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="722802b2c49946ccb31d2c673e2205be" Name="Diagram1">
-        <EntityTypeShape EntityType="Projet_GestionModel.Fonctionnalite" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Projet_GestionModel.Ligne_resa" Width="1.5" PointX="9.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Projet_GestionModel.Profil" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Projet_GestionModel.Reservation" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Projet_GestionModel.Ressource" Width="1.5" PointX="7.5" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Projet_GestionModel.Type" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Projet_GestionModel.Utilisateur" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="Projet_GestionModel.FK_Ligne_resa_Reservation" ManuallyRouted="false" />
-        <AssociationConnector Association="Projet_GestionModel.FK_Ligne_resa_Ressource" ManuallyRouted="false" />
-        <AssociationConnector Association="Projet_GestionModel.FK_Utilisateur_Profil" ManuallyRouted="false" />
-        <AssociationConnector Association="Projet_GestionModel.FK_Reservation_Utilisateur" ManuallyRouted="false" />
-        <AssociationConnector Association="Projet_GestionModel.FK_Ressource_Type" ManuallyRouted="false" />
-        <AssociationConnector Association="Projet_GestionModel.Droit" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="Projet_GestionModel.sysdiagrams" Width="1.5" PointX="2.25" PointY="5" />
+        <EntityTypeShape EntityType="Projet_GestionModel.Fonctionnalite" Width="1.5" PointX="5.25" PointY="1.25" />
+        <EntityTypeShape EntityType="Projet_GestionModel.Ligne_resa" Width="1.5" PointX="10.25" PointY="5.25" />
+        <EntityTypeShape EntityType="Projet_GestionModel.Profil" Width="1.5" PointX="7.5" PointY="1.125" />
+        <EntityTypeShape EntityType="Projet_GestionModel.Reservation" Width="1.5" PointX="12" PointY="1" />
+        <EntityTypeShape EntityType="Projet_GestionModel.Ressource" Width="1.5" PointX="7.5" PointY="5.5" />
+        <EntityTypeShape EntityType="Projet_GestionModel.sysdiagrams" Width="1.5" PointX="12.25" PointY="4.25" />
+        <EntityTypeShape EntityType="Projet_GestionModel.Type" Width="1.5" PointX="5.25" PointY="5.875" />
+        <EntityTypeShape EntityType="Projet_GestionModel.Utilisateur" Width="1.5" PointX="9.75" PointY="0.5" />
+        <AssociationConnector Association="Projet_GestionModel.FK_Utilisateur_Profil" />
+        <AssociationConnector Association="Projet_GestionModel.FK_Reservation_Utilisateur" />
+        <AssociationConnector Association="Projet_GestionModel.FK_Ressource_Type" />
+        <AssociationConnector Association="Projet_GestionModel.Droit" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
