@@ -147,7 +147,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\FonctionnalitesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Ligne_resaController.cs" />
+    <Compile Include="Controllers\ProfilsController.cs" />
+    <Compile Include="Controllers\ReservationsController.cs" />
+    <Compile Include="Controllers\RessourcesController.cs" />
     <Compile Include="Controllers\UtilisateursController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -196,6 +201,31 @@
     <Content Include="Views\Utilisateurs\Details.cshtml" />
     <Content Include="Views\Utilisateurs\Edit.cshtml" />
     <Content Include="Views\Utilisateurs\Index.cshtml" />
+    <Content Include="Views\Profils\Create.cshtml" />
+    <Content Include="Views\Profils\Delete.cshtml" />
+    <Content Include="Views\Profils\Details.cshtml" />
+    <Content Include="Views\Profils\Edit.cshtml" />
+    <Content Include="Views\Profils\Index.cshtml" />
+    <Content Include="Views\Reservations\Create.cshtml" />
+    <Content Include="Views\Reservations\Delete.cshtml" />
+    <Content Include="Views\Reservations\Details.cshtml" />
+    <Content Include="Views\Reservations\Edit.cshtml" />
+    <Content Include="Views\Reservations\Index.cshtml" />
+    <Content Include="Views\Ressources\Create.cshtml" />
+    <Content Include="Views\Ressources\Delete.cshtml" />
+    <Content Include="Views\Ressources\Details.cshtml" />
+    <Content Include="Views\Ressources\Edit.cshtml" />
+    <Content Include="Views\Ressources\Index.cshtml" />
+    <Content Include="Views\Fonctionnalites\Create.cshtml" />
+    <Content Include="Views\Fonctionnalites\Delete.cshtml" />
+    <Content Include="Views\Fonctionnalites\Details.cshtml" />
+    <Content Include="Views\Fonctionnalites\Edit.cshtml" />
+    <Content Include="Views\Fonctionnalites\Index.cshtml" />
+    <Content Include="Views\Ligne_resa\Create.cshtml" />
+    <Content Include="Views\Ligne_resa\Delete.cshtml" />
+    <Content Include="Views\Ligne_resa\Details.cshtml" />
+    <Content Include="Views\Ligne_resa\Edit.cshtml" />
+    <Content Include="Views\Ligne_resa\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

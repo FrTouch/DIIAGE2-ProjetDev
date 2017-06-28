@@ -1,0 +1,58 @@
+﻿@model ProjetWeb.DAL.Reservation
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Reservation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.date_debut_resa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date_debut_resa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date_fin_resa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date_fin_resa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date_resa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date_resa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.purge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.purge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Utilisateur.nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Utilisateur.nom)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

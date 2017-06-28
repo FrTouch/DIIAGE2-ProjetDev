@@ -1,0 +1,80 @@
+﻿@model ProjetWeb.DAL.Ressource
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Ressource</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dispo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dispo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date_achat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date_achat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.qr_code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.qr_code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.purge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.purge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type.nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type.nom)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
