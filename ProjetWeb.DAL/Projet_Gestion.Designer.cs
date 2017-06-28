@@ -1,4 +1,4 @@
-﻿// La génération de code T4 est activée pour le modèle 'D:\DIIAGE\DIIAGE 2\UEB4 - 10 - Projet Développement\ProjetWeb\ProjetWeb.DAL\Projet_Gestion.edmx'. 
+﻿// La génération de code T4 est activée pour le modèle 'C:\Users\Kantin\Source\Repos\DIIAGE2-ProjetDev\ProjetWeb.DAL\Projet_Gestion.edmx'. 
 // Pour activer la génération de code héritée, définissez la valeur de la propriété
 // du concepteur 'Stratégie de génération de code' sur 'ObjectContext hérité'. Cette propriété est disponible dans la fenêtre Propriétés lorsque le modèle
 //  est ouvert dans le concepteur.

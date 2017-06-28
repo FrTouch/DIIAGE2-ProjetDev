@@ -206,11 +206,6 @@
     <Content Include="Views\Profils\Details.cshtml" />
     <Content Include="Views\Profils\Edit.cshtml" />
     <Content Include="Views\Profils\Index.cshtml" />
-    <Content Include="Views\Reservations\Create.cshtml" />
-    <Content Include="Views\Reservations\Delete.cshtml" />
-    <Content Include="Views\Reservations\Details.cshtml" />
-    <Content Include="Views\Reservations\Edit.cshtml" />
-    <Content Include="Views\Reservations\Index.cshtml" />
     <Content Include="Views\Ressources\Create.cshtml" />
     <Content Include="Views\Ressources\Delete.cshtml" />
     <Content Include="Views\Ressources\Details.cshtml" />
@@ -226,6 +221,11 @@
     <Content Include="Views\Ligne_resa\Details.cshtml" />
     <Content Include="Views\Ligne_resa\Edit.cshtml" />
     <Content Include="Views\Ligne_resa\Index.cshtml" />
+    <Content Include="Views\Reservations\Create.cshtml" />
+    <Content Include="Views\Reservations\Delete.cshtml" />
+    <Content Include="Views\Reservations\Details.cshtml" />
+    <Content Include="Views\Reservations\Edit.cshtml" />
+    <Content Include="Views\Reservations\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

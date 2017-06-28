@@ -12,12 +12,6 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.date_debut_resa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.date_fin_resa)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.date_resa)
         </th>
         <th>
@@ -31,12 +25,6 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.date_debut_resa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.date_fin_resa)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.date_resa)
         </td>

@@ -22,8 +22,6 @@ namespace ProjetWeb.DAL
     
         public int id { get; set; }
         public int utilisateur_id { get; set; }
-        public System.DateTime date_debut_resa { get; set; }
-        public System.DateTime date_fin_resa { get; set; }
         public System.DateTime date_resa { get; set; }
         public bool purge { get; set; }
     

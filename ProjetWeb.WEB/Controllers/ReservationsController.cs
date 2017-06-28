@@ -48,7 +48,7 @@ namespace ProjetWeb.WEB.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,utilisateur_id,date_debut_resa,date_fin_resa,date_resa,purge")] Reservation reservation)
+        public ActionResult Create([Bind(Include = "id,utilisateur_id,date_resa,purge")] Reservation reservation)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace ProjetWeb.WEB.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,utilisateur_id,date_debut_resa,date_fin_resa,date_resa,purge")] Reservation reservation)
+        public ActionResult Edit([Bind(Include = "id,utilisateur_id,date_resa,purge")] Reservation reservation)
         {
             if (ModelState.IsValid)
             {
