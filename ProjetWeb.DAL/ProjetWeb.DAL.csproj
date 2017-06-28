@@ -82,6 +82,9 @@
     <Compile Include="Ressource.cs">
       <DependentUpon>Projet_Gestion.tt</DependentUpon>
     </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>Projet_Gestion.tt</DependentUpon>
+    </Compile>
     <Compile Include="Type.cs">
       <DependentUpon>Projet_Gestion.tt</DependentUpon>
     </Compile>
