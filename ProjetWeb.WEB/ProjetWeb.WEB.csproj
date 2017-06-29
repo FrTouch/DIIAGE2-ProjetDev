@@ -247,9 +247,13 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProjetWeb.DAL\ProjetWeb.DAL.csproj">
-      <Project>{8a83af62-55ee-4ee2-a823-7032a779f574}</Project>
-      <Name>ProjetWeb.DAL</Name>
+    <ProjectReference Include="..\ProjetWeb.BL\ProjetWeb.BL.csproj">
+      <Project>{610345d0-03c9-40b2-93db-f50c0dd74ff9}</Project>
+      <Name>ProjetWeb.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjetWeb.Model\ProjetWeb.Model.csproj">
+      <Project>{74f19e46-da3e-44f6-99f5-4dc39aa21d12}</Project>
+      <Name>ProjetWeb.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

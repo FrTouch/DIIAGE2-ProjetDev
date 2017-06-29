@@ -12,16 +12,12 @@ namespace ProjetWeb.DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Ligne_resa
+    public partial class sysdiagrams
     {
-        public int id { get; set; }
-        public int reservation_id { get; set; }
-        public int ressource_id { get; set; }
-        public System.DateTime date_debut { get; set; }
-        public System.DateTime date_fin { get; set; }
-        public bool purge { get; set; }
-    
-        public virtual Reservation Reservation { get; set; }
-        public virtual Ressource Ressource { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

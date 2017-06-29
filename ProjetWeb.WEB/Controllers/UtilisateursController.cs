@@ -6,19 +6,22 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using ProjetWeb.DAL;
+using ProjetWeb.BL;
+using ProjetWeb.Model;
 
 namespace ProjetWeb.WEB.Controllers
 {
     public class UtilisateursController : Controller
     {
-        private Projet_GestionEntities db = new Projet_GestionEntities();
+        //private Projet_GestionEntities db = new Projet_GestionEntities();
 
         // GET: Utilisateurs
         public ActionResult Index()
         {
-            var utilisateur = db.Utilisateur.Include(u => u.Profil);
-            return View(utilisateur.ToList());
+            List<UtilisateurModel> utilisateur = new List<UtilisateurModel>();
+            utilisateur = UtilisateurBL.GetLesUtilisateur();
+            //db.Utilisateur.Include(u => u.Profil);
+            return View(utilisateur);
         }
 
         // GET: Utilisateurs/Details/5
@@ -28,7 +31,7 @@ namespace ProjetWeb.WEB.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Utilisateur utilisateur = db.Utilisateur.Find(id);
+            UtilisateurModel utilisateur = UtilisateurBL.GetUnUtilisateurById(id.GetValueOrDefault());
             if (utilisateur == null)
             {
                 return HttpNotFound();

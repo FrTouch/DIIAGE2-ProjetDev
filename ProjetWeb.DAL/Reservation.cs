@@ -25,8 +25,8 @@ namespace ProjetWeb.DAL
         public System.DateTime date_resa { get; set; }
         public bool purge { get; set; }
     
+        public virtual Utilisateur Utilisateur { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ligne_resa> Ligne_resa { get; set; }
-        public virtual Utilisateur Utilisateur { get; set; }
     }
 }

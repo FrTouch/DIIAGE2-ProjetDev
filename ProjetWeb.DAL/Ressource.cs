@@ -29,8 +29,8 @@ namespace ProjetWeb.DAL
         public string qr_code { get; set; }
         public bool purge { get; set; }
     
+        public virtual Type Type { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ligne_resa> Ligne_resa { get; set; }
-        public virtual Type Type { get; set; }
     }
 }
