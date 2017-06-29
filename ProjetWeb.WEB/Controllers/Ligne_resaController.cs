@@ -49,7 +49,7 @@ namespace ProjetWeb.WEB.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "reservation_id,ressource_id,date_debut,date_fin,purge")] Ligne_resa ligne_resa)
+        public ActionResult Create([Bind(Include = "reservation_id,ressource_id,date_debut,date_fin,purge,id")] Ligne_resa ligne_resa)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace ProjetWeb.WEB.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "reservation_id,ressource_id,date_debut,date_fin,purge")] Ligne_resa ligne_resa)
+        public ActionResult Edit([Bind(Include = "reservation_id,ressource_id,date_debut,date_fin,purge,id")] Ligne_resa ligne_resa)
         {
             if (ModelState.IsValid)
             {
