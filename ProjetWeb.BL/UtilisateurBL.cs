@@ -19,7 +19,8 @@ namespace ProjetWeb.BL
                 id = u.id,
                 nom = u.nom,
                 prenom = u.prenom,
-                mail = u.mail
+                mail = u.mail,
+                profil_id = u.profil_id
             }).ToList();
             return lesUtilisateur;
         }
@@ -34,9 +35,40 @@ namespace ProjetWeb.BL
                 id = u.id,
                 nom = u.nom,
                 prenom = u.prenom,
-                mail = u.mail
-            }).FirstOrDefault();
+                mail = u.mail,
+                profil_id = u.profil_id
+
+                }).FirstOrDefault();
             return unUtilisateur;
+        }
+
+        public UtilisateurModel CreateUtilisateur(int idUser, int profil_idUser, string nomUser, string prenomUser, string mailUser, string passwordUser, DateTime last_loginUser, int deconnexionUser, bool purgeUser)
+        {
+            Utilisateur CreerUtilisateur = new Utilisateur();
+
+            CreerUtilisateur.id = idUser;
+            CreerUtilisateur.profil_id = profil_idUser;
+            CreerUtilisateur.nom = nomUser;
+            CreerUtilisateur.prenom = prenomUser;
+            CreerUtilisateur.mail = mailUser;
+            CreerUtilisateur.password = passwordUser;
+            CreerUtilisateur.last_login = last_loginUser;
+            CreerUtilisateur.deconnexion = deconnexionUser;
+            CreerUtilisateur.purge = purgeUser;
+
+            context.Utilisateur.Add(CreerUtilisateur);
+            context.SaveChanges();
+            UtilisateurModel UtilisateurMod = new UtilisateurModel();
+            UtilisateurMod.id = CreerUtilisateur.id;
+            UtilisateurMod.profil_id = CreerUtilisateur.profil_id;
+            UtilisateurMod.nom = CreerUtilisateur.nom;
+            UtilisateurMod.prenom = CreerUtilisateur.prenom;
+            UtilisateurMod.mail = CreerUtilisateur.mail;
+            UtilisateurMod.password = CreerUtilisateur.password;
+            UtilisateurMod.last_login = CreerUtilisateur.last_login;
+            UtilisateurMod.deconnexion = CreerUtilisateur.deconnexion;
+            UtilisateurMod.purge = CreerUtilisateur.purge;
+            return UtilisateurMod;
         }
     }
 }

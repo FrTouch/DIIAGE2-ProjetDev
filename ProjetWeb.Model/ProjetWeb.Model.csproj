@@ -41,9 +41,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="FonctionnaliteModel.cs" />
+    <Compile Include="Ligne_resaModel.cs" />
     <Compile Include="ProfilModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReservationModel.cs" />
+    <Compile Include="RessourceModel.cs" />
+    <Compile Include="TypeModel.cs" />
     <Compile Include="UtilisateurModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

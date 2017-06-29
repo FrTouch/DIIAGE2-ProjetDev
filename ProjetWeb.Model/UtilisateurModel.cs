@@ -20,8 +20,21 @@ namespace ProjetWeb.Model
 
         public ProfilModel Profil { get; set; }
 
-        public List<ReservationModel> LstReservation { get; set; }
+        public List<FonctionnaliteModel> LstReservation { get; set; }
 
         public UtilisateurModel() { }
+
+        public UtilisateurModel(int idUser, int profil_idUser, string nomUser, string prenomUser, string mailUser, string passwordUser, DateTime last_loginUser, int deconnexionUser, bool purgeUser)
+        {
+            id = idUser;
+            profil_id = profil_idUser;
+            nom = nomUser;
+            prenom = prenomUser;
+            mail = mailUser;
+            password = passwordUser;
+            last_login = last_loginUser;
+            deconnexion = deconnexionUser;
+            purge = purgeUser;
+        }
     }
 }

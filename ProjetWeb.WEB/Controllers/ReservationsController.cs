@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using ProjetWeb.DAL;
+using ProjetWeb.Model;
 
 namespace ProjetWeb.WEB.Controllers
 {

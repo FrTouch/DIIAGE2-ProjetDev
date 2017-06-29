@@ -14,7 +14,7 @@ namespace ProjetWeb.WEB.Controllers
     public class UtilisateursController : Controller
     {
         //private Projet_GestionEntities db = new Projet_GestionEntities();
-
+        private UtilisateurBL BLUser = new UtilisateurBL();
         // GET: Utilisateurs
         public ActionResult Index()
         {
@@ -42,7 +42,7 @@ namespace ProjetWeb.WEB.Controllers
         // GET: Utilisateurs/Create
         public ActionResult Create()
         {
-            ViewBag.profil_id = new SelectList(db.Profil, "id", "nom");
+           // ViewBag.profil_id = new SelectList(BLUser, "id", "nom");
             return View();
         }
 
@@ -51,16 +51,17 @@ namespace ProjetWeb.WEB.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,profil_id,nom,prenom,mail,password,last_login,deconnexion,purge")] Utilisateur utilisateur)
+        public ActionResult Create([Bind(Include = "id,profil_id,nom,prenom,mail,password,last_login,deconnexion,purge")] UtilisateurModel utilisateur)
         {
             if (ModelState.IsValid)
             {
-                db.Utilisateur.Add(utilisateur);
-                db.SaveChanges();
+                BLUser.CreateUtilisateur(utilisateur.id,utilisateur.profil_id,utilisateur.nom,utilisateur.prenom,utilisateur.mail,utilisateur.password,utilisateur.last_login,utilisateur.deconnexion,utilisateur.purge);
+                //db.Utilisateur.Add(utilisateur);
+                //db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.profil_id = new SelectList(db.Profil, "id", "nom", utilisateur.profil_id);
+            /*ViewBag.profil_id = new SelectList(db.Profil, "id", "nom", utilisateur.profil_id);*/
             return View(utilisateur);
         }
 
