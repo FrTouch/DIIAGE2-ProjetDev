@@ -11,7 +11,7 @@ namespace ProjetWeb.BL
     public class ReservationBL
     {
         private static Projet_GestionEntities context = new Projet_GestionEntities();
-        public static List<ReservationModel> GetLesReservation()
+        public List<ReservationModel> GetLesReservation()
         {
             List<ReservationModel> lesReservation = new List<ReservationModel>();
             lesReservation = context.Reservation.Select(r => new ReservationModel()
@@ -25,7 +25,7 @@ namespace ProjetWeb.BL
 
         }
 
-        public static ReservationModel GetUneReservationById(int idRes)
+        public ReservationModel GetUneReservationById(int idRes)
         {
             ReservationModel uneReservation = new ReservationModel();
             uneReservation = context.Reservation

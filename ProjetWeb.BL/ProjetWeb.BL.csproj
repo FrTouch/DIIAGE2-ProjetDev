@@ -48,11 +48,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="FonctionnalitesBL.cs" />
+    <Compile Include="FonctionnaliteBL.cs" />
     <Compile Include="Ligne_resaBL.cs" />
+    <Compile Include="ProfilBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReservationBL.cs" />
     <Compile Include="RessourceBL.cs" />
+    <Compile Include="TypeBL.cs" />
     <Compile Include="UtilisateurBL.cs" />
   </ItemGroup>
   <ItemGroup>
