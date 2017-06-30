@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjetWeb.BL
 {
-    class Ligne_resaBL
+    public class Ligne_resaBL
     {
         private static Projet_GestionEntities context = new Projet_GestionEntities();
         public List<Ligne_resaModel> GetLesLignesResa()

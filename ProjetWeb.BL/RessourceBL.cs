@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjetWeb.BL
 {
-    class RessourceBL
+    public class RessourceBL
     {
         private static Projet_GestionEntities context = new Projet_GestionEntities();
         public List<RessourceModel> GetLesReservation()

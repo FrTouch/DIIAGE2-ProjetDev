@@ -5,10 +5,11 @@ using System.Web;
 using System.Web.Mvc;
 using ProjetWeb.BL;
 using ProjetWeb.Model;
+using System.Web.Http;
 
 namespace ProjetWeb.API.Controllers
 {
-    public class Ligne_resaController : Controller
+    public class Ligne_resaController : ApiController
     {
         // on instancie un Ligne_resaBL pour utiliser les méthodes
         private Ligne_resaBL BLLigne_resa = new Ligne_resaBL();

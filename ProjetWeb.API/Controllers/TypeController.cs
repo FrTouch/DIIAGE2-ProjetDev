@@ -5,10 +5,11 @@ using System.Web;
 using System.Web.Mvc;
 using ProjetWeb.BL;
 using ProjetWeb.Model;
+using System.Web.Http;
 
 namespace ProjetWeb.API.Controllers
 {
-    public class TypeController : Controller
+    public class TypeController : ApiController
     {
         // on instancie un TypeBL pour utiliser les méthodes
         private TypeBL BLType = new TypeBL();

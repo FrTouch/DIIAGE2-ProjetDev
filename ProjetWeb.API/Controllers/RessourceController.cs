@@ -5,10 +5,11 @@ using System.Web;
 using System.Web.Mvc;
 using ProjetWeb.BL;
 using ProjetWeb.Model;
+using System.Web.Http;
 
 namespace ProjetWeb.API.Controllers
 {
-    public class RessourceController : Controller
+    public class RessourceController : ApiController
     {
         // on instancie un RessourceBL pour utiliser les méthodes
         private RessourceBL BLRessource = new RessourceBL();

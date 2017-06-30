@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjetWeb.BL
 {
-    class FonctionnaliteBL
+    public class FonctionnaliteBL
     {
         private static Projet_GestionEntities context = new Projet_GestionEntities();
         public List<FonctionnaliteModel> GetLesFonctionnalite()

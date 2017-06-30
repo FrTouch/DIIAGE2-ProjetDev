@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjetWeb.BL
 {
-    class ProfilBL
+    public class ProfilBL
     {
         private static Projet_GestionEntities context = new Projet_GestionEntities();
         public List<ProfilModel> GetLesProfil()

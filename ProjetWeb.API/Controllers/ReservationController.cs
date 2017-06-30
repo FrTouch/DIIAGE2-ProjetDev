@@ -5,10 +5,11 @@ using System.Web;
 using System.Web.Mvc;
 using ProjetWeb.BL;
 using ProjetWeb.Model;
+using System.Web.Http;
 
 namespace ProjetWeb.API.Controllers
 {
-    public class ReservationController : Controller
+    public class ReservationController : ApiController
     {
         // on instancie un ReservationBL pour utiliser les méthodes
         private ReservationBL BLReservation = new ReservationBL();

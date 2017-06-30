@@ -5,10 +5,11 @@ using System.Web;
 using System.Web.Mvc;
 using ProjetWeb.BL;
 using ProjetWeb.Model;
+using System.Web.Http;
 
 namespace ProjetWeb.API.Controllers
 {
-    public class ProfilController : Controller
+    public class ProfilController : ApiController
     {
         // on instancie un ProfilBL pour utiliser les méthodes
         private ProfilBL BLProfil = new ProfilBL();
@@ -21,7 +22,7 @@ namespace ProjetWeb.API.Controllers
         public ProfilModel Get(int id)
         {
             //On appelle la fonction GetUnProfilById
-            return BLProfil.GetUneProfilById(id);
+            return BLProfil.GetUnProfilById(id);
         }
     }
 }
