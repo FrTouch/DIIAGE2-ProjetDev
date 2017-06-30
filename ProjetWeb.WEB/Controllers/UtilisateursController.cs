@@ -72,12 +72,12 @@ namespace ProjetWeb.WEB.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Utilisateur utilisateur = db.Utilisateur.Find(id);
+            UtilisateurModel utilisateur = UtilisateurBL.GetUnUtilisateurById(id.GetValueOrDefault());
             if (utilisateur == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.profil_id = new SelectList(db.Profil, "id", "nom", utilisateur.profil_id);
+            //ViewBag.profil_id = new SelectList(db.Profil, "id", "nom", utilisateur.profil_id);
             return View(utilisateur);
         }
 
@@ -86,51 +86,53 @@ namespace ProjetWeb.WEB.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,profil_id,nom,prenom,mail,password,last_login,deconnexion,purge")] Utilisateur utilisateur)
+        public ActionResult Edit([Bind(Include = "id,profil_id,nom,prenom,mail,password,last_login,deconnexion,purge")] UtilisateurModel utilisateur)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(utilisateur).State = EntityState.Modified;
-                db.SaveChanges();
+                BLUser.ModifierUtilisateur(utilisateur.id);
+                //db.Entry(utilisateur).State = EntityState.Modified;
+                //db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.profil_id = new SelectList(db.Profil, "id", "nom", utilisateur.profil_id);
+            //ViewBag.profil_id = new SelectList(db.Profil, "id", "nom", utilisateur.profil_id);
             return View(utilisateur);
         }
 
         // GET: Utilisateurs/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Utilisateur utilisateur = db.Utilisateur.Find(id);
-            if (utilisateur == null)
-            {
-                return HttpNotFound();
-            }
-            return View(utilisateur);
-        }
+        //public ActionResult Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    BLUser.ModifierUtilisateur(utilisateur.id);
+        //    //Utilisateur utilisateur = db.Utilisateur.Find(id);
+        //    if (utilisateur == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(utilisateur);
+        //}
 
-        // POST: Utilisateurs/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Utilisateur utilisateur = db.Utilisateur.Find(id);
-            db.Utilisateur.Remove(utilisateur);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //// POST: Utilisateurs/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(int id)
+        //{
+        //    Utilisateur utilisateur = db.Utilisateur.Find(id);
+        //    db.Utilisateur.Remove(utilisateur);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }

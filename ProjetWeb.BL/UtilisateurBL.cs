@@ -70,5 +70,22 @@ namespace ProjetWeb.BL
             UtilisateurMod.purge = CreerUtilisateur.purge;
             return UtilisateurMod;
         }
+
+        public UtilisateurModel ModifierUtilisateur(int idUser)
+        {
+            UtilisateurModel unUtilisateur = new UtilisateurModel();
+            unUtilisateur = context.Utilisateur
+                .Where(u => u.id == idUser)
+                .Select(u => new UtilisateurModel()
+                {
+                    id = u.id,
+                    nom = u.nom,
+                    prenom = u.prenom,
+                    mail = u.mail,
+                    profil_id = u.profil_id
+
+                }).FirstOrDefault();
+            return unUtilisateur;
+        }
     }
 }
