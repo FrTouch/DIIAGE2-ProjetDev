@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjetWeb.BL
 {
-    class ReservationBL
+    public class ReservationBL
     {
         private static Projet_GestionEntities context = new Projet_GestionEntities();
         public static List<ReservationModel> GetLesReservation()
@@ -41,7 +41,7 @@ namespace ProjetWeb.BL
             return uneReservation;
         }
 
-        public ReservationModel CreateReservation(int idRes, int id_utilisateurResa, DateTime date_resaResa bool purgeResa)
+        public ReservationModel CreateReservation(int idRes, int id_utilisateurResa, DateTime date_resaResa, bool purgeResa)
         {
             Reservation CreerReservation = new Reservation();
 
