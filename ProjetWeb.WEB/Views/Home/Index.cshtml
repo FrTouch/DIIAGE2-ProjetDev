@@ -1,23 +1,33 @@
-﻿@{
-    ViewBag.Title = "Accueil";
-}
-
-<!-- Script qui affiche le formulaire de connexion-->
+﻿<!-- Script qui affiche le formulaire de connexion-->
 <script type="text/javascript">
-    $("#ident").hide()
+
     $(document).ready(function () {
-        $("#ident").fadeIn(1012)
+        $("#ident").hide();
+        $("#ident").fadeIn(4000);
     });
 
 </script>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Gestion des réservations", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+    </div>
+</div>
 
 <div class="jumbotron">
     <h1 align="center">Bienvenue</h1>
 <!--    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Se connecter &raquo;</a></p> -->
 </div>
 
-<div align="center" class="col-xs-6 col-sm-12 hidden" style=" border:2px solid grey;">
-    <form id="ident" class="form-group">
+<div id="ident" align="center" class="col-xs-6 col-sm-12" style=" border:2px solid black; border-radius: 5px;">
+    <form class="form-group">
         <fieldset>
             <legend>Authentification</legend>
             <p>Identifiant :  <input type="text" placeholder=" You@example.com" id="txtLogin" /></p>
