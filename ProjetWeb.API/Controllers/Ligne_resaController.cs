@@ -16,13 +16,13 @@ namespace ProjetWeb.API.Controllers
         // GET: UtLigne_resa
         public List<Ligne_resaModel> Get()
         {
-            //On appelle la fonction GetLesLigne_resas
-            return BLLigne_resa.GetLesLigne_resa();
+            //On appelle la fonction GetLesLigneresas
+            return BLLigne_resa.GetLesLignesResa();
         }
         public Ligne_resaModel Get(int id)
         {
-            //On appelle la fonction GetUnLigne_resaById
-            return BLLigne_resa.GetUneLigne_resaById(id);
+            //On appelle la fonction GetUnLigneresaById
+            return BLLigne_resa.GetUneLigneById(id);
         }
     }
 }

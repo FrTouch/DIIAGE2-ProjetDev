@@ -26,7 +26,7 @@ namespace ProjetWeb.BL
 
         }
 
-        public TypeModel GetUneTypeById(int idTy)
+        public TypeModel GetUnTypeById(int idTy)
         {
             TypeModel unType = new TypeModel();
             unType = context.Type
