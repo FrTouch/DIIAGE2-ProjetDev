@@ -176,7 +176,13 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\FonctionnaliteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Ligne_resaController.cs" />
+    <Compile Include="Controllers\ProfilController.cs" />
+    <Compile Include="Controllers\ReservationController.cs" />
+    <Compile Include="Controllers\RessourceController.cs" />
+    <Compile Include="Controllers\TypeController.cs" />
     <Compile Include="Controllers\UtilisateurController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -239,6 +245,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Fonctionnalite\" />
+    <Folder Include="Views\Ligne_resa\" />
+    <Folder Include="Views\Profil\" />
+    <Folder Include="Views\Reservation\" />
+    <Folder Include="Views\Ressource\" />
+    <Folder Include="Views\Type\" />
     <Folder Include="Views\Utilisateur\" />
   </ItemGroup>
   <ItemGroup>
