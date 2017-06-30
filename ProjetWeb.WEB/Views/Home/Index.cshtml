@@ -2,37 +2,32 @@
     ViewBag.Title = "Accueil";
 }
 
+<!-- Script qui affiche le formulaire de connexion-->
+<script type="text/javascript">
+    $("#ident").hide()
+    $(document).ready(function () {
+        $("#ident").fadeIn(1012)
+    });
+
+</script>
+
 <div class="jumbotron">
-    <h1>Bienvenue</h1>
-    <p class="lead">Bienvenue sur votre système de réservation.</p>
-    <p>Pour vous connecter, cliquez sur l'option "Se connecter"...</p>
-    <input type="text" placeholder="Username" id="txtLogin" />
-    <input type="password" placeholder="Password" id="txtPassword" />
-    <input type="button" value="valider" id="btnValue" onclick="login()" />
+    <h1 align="center">Bienvenue</h1>
 <!--    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Se connecter &raquo;</a></p> -->
 </div>
 
-<!--<div class="row">
-    <div class="col-md-4">
-        <h2>Bienvenue sur votre système de réservation</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div> 
-</div> -->
+<div align="center" class="col-xs-6 col-sm-12 hidden" style=" border:2px solid grey;">
+    <form id="ident" class="form-group">
+        <fieldset>
+            <legend>Authentification</legend>
+            <p>Identifiant :  <input type="text" placeholder=" You@example.com" id="txtLogin" /></p>
+            <p>Mot de passe :  <input type="password" placeholder=" Password" id="txtPassword" /></p>
+        </fieldset>
+        <div>
+            <input type="button" class="btn btn-default btn-lg btn-block" value="Valider" id="btnValue" onclick="login()" />
+        </div>
+    </form>
+</div>
 
 <!-- Script appelé par le bouton -->
 <script type="text/javascript">
@@ -61,3 +56,6 @@
         })
     }
 </script>
+
+
+
