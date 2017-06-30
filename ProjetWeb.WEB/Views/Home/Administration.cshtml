@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Administration";
+}
+<h2>@ViewBag.Title</h2>
+
+<br />  
+
+<div class="btn-group-sm btn-toolbar" >
+    <p>
+        <button type="button" class="btn btn-sm btn-primary" onclick="afficherUtilisateurs()">Utilisateurs</button>
+        <button type="button" class="btn btn-sm btn-primary">Ressources</button>
+        <button type="button" class="btn btn-sm btn-primary">Réservations</button>
+    </p>
+</div>
+
+<script type="text/javascript">
+     function afficherUtilisateurs() {
+
+         $.ajax({
+             // Home ==> Contrôleur qui va chercher dans la fonction Create dans le contrôleur Ligne_resa
+             url: "/Ligne_resa/Create",
+             type: 'GET',
+             // data représente les données retournées par le serveur
+             success: function (data) {
+
+                 $('#formulaire').html(data);
+                 //$('#formulaire').append(data);
+             }
+         })
+     }
+</script>
