@@ -20,7 +20,7 @@ namespace ProjetWeb.WEB.Controllers
         public ActionResult Index()
         {
             List<ReservationModel> reservation = new List<ReservationModel>();
-            reservation = ReservationBL.GetLesReservation();
+            reservation = BLResa.GetLesReservation();
             //var reservation = db.Reservation.Include(r => r.Utilisateur);
             return View(reservation);
         }
@@ -32,7 +32,7 @@ namespace ProjetWeb.WEB.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ReservationModel reservation = ReservationBL.GetUneReservationById(id.GetValueOrDefault());
+            ReservationModel reservation = BLResa.GetUneReservationById(id.GetValueOrDefault());
             if (reservation == null)
             {
                 return HttpNotFound();
