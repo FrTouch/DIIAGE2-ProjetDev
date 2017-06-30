@@ -11,7 +11,7 @@ namespace ProjetWeb.BL
     class RessourceBL
     {
         private static Projet_GestionEntities context = new Projet_GestionEntities();
-        public static List<RessourceModel> GetLesReservation()
+        public List<RessourceModel> GetLesReservation()
         {
             List<RessourceModel> lesRessource = new List<RessourceModel>();
             lesRessource = context.Ressource.Select(r => new RessourceModel()
@@ -29,7 +29,7 @@ namespace ProjetWeb.BL
 
         }
 
-        public static RessourceModel GetUneRessourceById(int idRe)
+        public RessourceModel GetUneRessourceById(int idRe)
         {
             RessourceModel uneRessource = new RessourceModel();
             uneRessource = context.Ressource

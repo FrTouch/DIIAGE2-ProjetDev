@@ -19,7 +19,7 @@ namespace ProjetWeb.WEB.Controllers
         public ActionResult Index()
         {
             List<UtilisateurModel> utilisateur = new List<UtilisateurModel>();
-            utilisateur = UtilisateurBL.GetLesUtilisateur();
+            utilisateur = BLUser.GetLesUtilisateur();
             //db.Utilisateur.Include(u => u.Profil);
             return View(utilisateur);
         }
@@ -31,7 +31,7 @@ namespace ProjetWeb.WEB.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UtilisateurModel utilisateur = UtilisateurBL.GetUnUtilisateurById(id.GetValueOrDefault());
+            UtilisateurModel utilisateur = BLUser.GetUnUtilisateurById(id.GetValueOrDefault());
             if (utilisateur == null)
             {
                 return HttpNotFound();
@@ -72,7 +72,7 @@ namespace ProjetWeb.WEB.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UtilisateurModel utilisateur = UtilisateurBL.GetUnUtilisateurById(id.GetValueOrDefault());
+            UtilisateurModel utilisateur = BLUser.GetUnUtilisateurById(id.GetValueOrDefault());
             if (utilisateur == null)
             {
                 return HttpNotFound();

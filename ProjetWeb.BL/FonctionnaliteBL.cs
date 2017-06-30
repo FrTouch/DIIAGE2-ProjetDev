@@ -11,7 +11,7 @@ namespace ProjetWeb.BL
     class FonctionnaliteBL
     {
         private static Projet_GestionEntities context = new Projet_GestionEntities();
-        public static List<FonctionnaliteModel> GetLesFonctionnalite()
+        public List<FonctionnaliteModel> GetLesFonctionnalite()
         {
             List<FonctionnaliteModel> lesFonctionnalite = new List<FonctionnaliteModel>();
             lesFonctionnalite = context.Fonctionnalite.Select(f => new FonctionnaliteModel()
@@ -23,7 +23,7 @@ namespace ProjetWeb.BL
             return lesFonctionnalite;
         }
 
-        public static FonctionnaliteModel GetUneFonctionnaliteById(int idFon)
+        public FonctionnaliteModel GetUneFonctionnaliteById(int idFon)
         {
             FonctionnaliteModel uneFonctionnalite = new FonctionnaliteModel();
             uneFonctionnalite = context.Fonctionnalite

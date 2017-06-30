@@ -11,7 +11,7 @@ namespace ProjetWeb.BL
     class Ligne_resaBL
     {
         private static Projet_GestionEntities context = new Projet_GestionEntities();
-        public static List<Ligne_resaModel> GetLesLignesResa()
+        public List<Ligne_resaModel> GetLesLignesResa()
         {
             List<Ligne_resaModel> lesLignesResa = new List<Ligne_resaModel>();
             lesLignesResa = context.Ligne_resa.Select(l => new Ligne_resaModel()
@@ -26,7 +26,7 @@ namespace ProjetWeb.BL
             return lesLignesResa;
         }
 
-        public static Ligne_resaModel GetUneLigneById(int idLigne)
+        public Ligne_resaModel GetUneLigneById(int idLigne)
         {
             Ligne_resaModel  uneLigne = new Ligne_resaModel();
             uneLigne = context.Ligne_resa
