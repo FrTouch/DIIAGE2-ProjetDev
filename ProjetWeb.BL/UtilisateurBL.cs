@@ -2,6 +2,7 @@
 using ProjetWeb.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ namespace ProjetWeb.BL
     public class UtilisateurBL
     {
         private static Projet_GestionEntities context = new Projet_GestionEntities();
-        public static List<UtilisateurModel> GetLesUtilisateur()
+        public List<UtilisateurModel> GetLesUtilisateur()
         {           
             List<UtilisateurModel> lesUtilisateur = new List<UtilisateurModel>();
             lesUtilisateur = context.Utilisateur.Select(u=>new UtilisateurModel()
@@ -25,7 +26,7 @@ namespace ProjetWeb.BL
             return lesUtilisateur;
         }
 
-        public static UtilisateurModel GetUnUtilisateurById(int idUser)
+        public  UtilisateurModel GetUnUtilisateurById(int idUser)
         {
             UtilisateurModel unUtilisateur = new UtilisateurModel();
             unUtilisateur = context.Utilisateur
@@ -71,21 +72,61 @@ namespace ProjetWeb.BL
             return UtilisateurMod;
         }
 
-        public UtilisateurModel ModifierUtilisateur(int idUser)
+        public UtilisateurModel ModifierUtilisateur(int idUser, int profil_idUser, string nomUser, string prenomUser, string mailUser, string passwordUser, DateTime last_loginUser, int deconnexionUser, bool purgeUser)
         {
-            UtilisateurModel unUtilisateur = new UtilisateurModel();
-            unUtilisateur = context.Utilisateur
-                .Where(u => u.id == idUser)
-                .Select(u => new UtilisateurModel()
-                {
-                    id = u.id,
-                    nom = u.nom,
-                    prenom = u.prenom,
-                    mail = u.mail,
-                    profil_id = u.profil_id
+            Utilisateur ModifierUtilisateur = new Utilisateur();
+            ModifierUtilisateur.id = idUser;
+            ModifierUtilisateur.profil_id = profil_idUser;
+            ModifierUtilisateur.nom = nomUser;
+            ModifierUtilisateur.prenom = prenomUser;
+            ModifierUtilisateur.mail = mailUser;
+            ModifierUtilisateur.password = passwordUser;
+            ModifierUtilisateur.last_login = last_loginUser;
+            ModifierUtilisateur.deconnexion = deconnexionUser;
+            ModifierUtilisateur.purge = purgeUser;
 
-                }).FirstOrDefault();
-            return unUtilisateur;
+            context.Entry(ModifierUtilisateur).State = EntityState.Modified;
+            context.SaveChanges();
+            UtilisateurModel UtilisateurMod = new UtilisateurModel();
+            UtilisateurMod.id = ModifierUtilisateur.id;
+            UtilisateurMod.profil_id = ModifierUtilisateur.profil_id;
+            UtilisateurMod.nom = ModifierUtilisateur.nom;
+            UtilisateurMod.prenom = ModifierUtilisateur.prenom;
+            UtilisateurMod.mail = ModifierUtilisateur.mail;
+            UtilisateurMod.password = ModifierUtilisateur.password;
+            UtilisateurMod.last_login = ModifierUtilisateur.last_login;
+            UtilisateurMod.deconnexion = ModifierUtilisateur.deconnexion;
+            UtilisateurMod.purge = ModifierUtilisateur.purge;
+            return UtilisateurMod;
+        }
+
+        public UtilisateurModel DeleteUtilisateur(int idUser)
+        {
+            Utilisateur SupprimerUtilisateur = new Utilisateur();
+
+            SupprimerUtilisateur.id = idUser;
+            //SupprimerUtilisateur.profil_id = profil_idUser;
+            //SupprimerUtilisateur.nom = nomUser;
+            //SupprimerUtilisateur.prenom = prenomUser;
+            //SupprimerUtilisateur.mail = mailUser;
+            //SupprimerUtilisateur.password = passwordUser;
+            //SupprimerUtilisateur.last_login = last_loginUser;
+            //SupprimerUtilisateur.deconnexion = deconnexionUser;
+            //SupprimerUtilisateur.purge = purgeUser;
+
+            context.Utilisateur.Remove(SupprimerUtilisateur);
+            context.SaveChanges();
+            UtilisateurModel UtilisateurMod = new UtilisateurModel();
+            UtilisateurMod.id = SupprimerUtilisateur.id;
+            //UtilisateurMod.profil_id = SupprimerUtilisateur.profil_id;
+            //UtilisateurMod.nom = SupprimerUtilisateur.nom;
+            //UtilisateurMod.prenom = SupprimerUtilisateur.prenom;
+            //UtilisateurMod.mail = SupprimerUtilisateur.mail;
+            //UtilisateurMod.password = SupprimerUtilisateur.password;
+            //UtilisateurMod.last_login = SupprimerUtilisateur.last_login;
+            //UtilisateurMod.deconnexion = SupprimerUtilisateur.deconnexion;
+            //UtilisateurMod.purge = SupprimerUtilisateur.purge;
+            return UtilisateurMod;
         }
     }
 }

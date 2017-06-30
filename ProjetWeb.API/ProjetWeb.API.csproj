@@ -177,6 +177,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UtilisateurController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -238,6 +239,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Utilisateur\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -253,6 +255,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProjetWeb.BL\ProjetWeb.BL.csproj">
+      <Project>{610345D0-03C9-40B2-93DB-F50C0DD74FF9}</Project>
+      <Name>ProjetWeb.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjetWeb.Model\ProjetWeb.Model.csproj">
+      <Project>{74F19E46-DA3E-44F6-99F5-4DC39AA21D12}</Project>
+      <Name>ProjetWeb.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
