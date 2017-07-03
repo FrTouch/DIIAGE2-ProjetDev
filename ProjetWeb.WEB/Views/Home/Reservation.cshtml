@@ -56,14 +56,13 @@
                                 </div>
                                 <div class="modal-body" id="formulaire">
                                     Pour ajouter une nouvelle réservation, cliquez sur <strong>Ajouter une réservation</strong>. <br />
-                                    Une fois toutes les réservations voulues effectuées, cliquez sur <strong>Valider</strong>. <br />
-                                   
+                                    Une fois toutes les réservations voulues effectuées, cliquez sur <strong>Valider</strong>. <br />                                
                                 </div>
-                                <div class="modal-footer">
-                                    @*<button type="button" class="btn" onclick="ajouterReservation()">Ajouter une réservation</button>*@
+                                @*<div class="modal-footer">
+                                    <button type="button" class="btn" onclick="ajouterReservation()">Ajouter une réservation</button>
                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
                                     <button type="button" class="btn btn-success">Valider</button>
-                                </div>
+                                </div>*@
                             </div>
                         </div>
                     </div>
@@ -82,7 +81,7 @@
              // data représente les données retournées par le serveur
              success: function (data) {
 
-                 //$('#formulaire').html(data);
+                 $('#formulaire').html(data);
                  //$('#formulaire').append(data);
              }
          })
