@@ -39,7 +39,7 @@ namespace ProjetWeb.WEB.Controllers
             // On redirige vers l'index si l'utilisateur connecté n'est pas administrateur
             if ((int)Session["Profil"] != 1)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Reservation");
             }
             ViewBag.Message = "Page d'administration.";
 
