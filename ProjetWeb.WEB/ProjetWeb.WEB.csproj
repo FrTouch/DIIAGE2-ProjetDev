@@ -216,7 +216,7 @@
     <Content Include="Views\Fonctionnalites\Details.cshtml" />
     <Content Include="Views\Fonctionnalites\Edit.cshtml" />
     <Content Include="Views\Fonctionnalites\Index.cshtml" />
-    <Content Include="Views\Ligne_resa\Create - SAVE 2.cshtml" />
+    <Content Include="Views\Ligne_resa\Create.cshtml" />
     <Content Include="Views\Ligne_resa\Delete.cshtml" />
     <Content Include="Views\Ligne_resa\Details.cshtml" />
     <Content Include="Views\Ligne_resa\Edit.cshtml" />
@@ -226,8 +226,6 @@
     <Content Include="Views\Reservations\Details.cshtml" />
     <Content Include="Views\Reservations\Edit.cshtml" />
     <Content Include="Views\Reservations\Index.cshtml" />
-    <Content Include="Views\Ligne_resa\Create - SAVE.cshtml" />
-    <Content Include="Views\Ligne_resa\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

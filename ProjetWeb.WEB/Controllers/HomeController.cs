@@ -13,6 +13,11 @@ namespace ProjetWeb.WEB.Controllers
             return View();
         }
 
+        public ActionResult Reservation()
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
