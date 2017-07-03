@@ -19,6 +19,12 @@ namespace ProjetWeb.WEB.Controllers
         // GET: Reservations
         public ActionResult Index()
         {
+            // On check si l'utilisateur est connecté
+            if (Session["Utilisateur"] == null)
+            {
+                return RedirectToAction("Index","Home");
+            }
+
             List<ReservationModel> reservation = new List<ReservationModel>();
             reservation = BLResa.GetLesReservation();
             //var reservation = db.Reservation.Include(r => r.Utilisateur);

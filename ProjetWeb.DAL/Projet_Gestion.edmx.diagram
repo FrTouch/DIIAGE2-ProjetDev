@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="c74ddedc22964d1e8a7514be70c692c9" Name="Diagram1">
-        <EntityTypeShape EntityType="Projet_GestionModel.Fonctionnalite" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Projet_GestionModel.Fonctionnalite" Width="1.5" PointX="0.875" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Projet_GestionModel.Ligne_resa" Width="1.5" PointX="7.5" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Projet_GestionModel.Profil" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Projet_GestionModel.Reservation" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
