@@ -20,22 +20,22 @@
         <th>
             @Html.DisplayNameFor(model => model.mail)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.password)
+        @*<th>
+           @Html.DisplayNameFor(model => model.password)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.last_login)
+           @Html.DisplayNameFor(model => model.last_login)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.deconnexion)
+           @Html.DisplayNameFor(model => model.deconnexion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.purge)
+          @Html.DisplayNameFor(model => model.purge)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Profil.nom)
+          @Html.DisplayNameFor(model => model.Profil.nom)
         </th>
-        <th></th>
+        <th></th>*@
     </tr>
 
 @foreach (var item in Model) {
@@ -49,21 +49,21 @@
         <td>
             @Html.DisplayFor(modelItem => item.mail)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.password)
+        <td>@*
+           @Html.DisplayFor(modelItem => item.password)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.last_login)
+          @Html.DisplayFor(modelItem => item.last_login)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.deconnexion)
+           @Html.DisplayFor(modelItem => item.deconnexion)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.purge)
+           @Html.DisplayFor(modelItem => item.purge)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Profil.nom)
-        </td>
+           @Html.DisplayFor(modelItem => item.Profil.nom)
+        </td>*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
             @Html.ActionLink("Details", "Details", new { id=item.id }) |
