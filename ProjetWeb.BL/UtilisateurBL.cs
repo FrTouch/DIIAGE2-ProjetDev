@@ -100,33 +100,14 @@ namespace ProjetWeb.BL
             return UtilisateurMod;
         }
 
-        public UtilisateurModel DeleteUtilisateur(int idUser)
+        public void DeleteUtilisateur(int idUser)
         {
-            Utilisateur SupprimerUtilisateur = new Utilisateur();
+            Utilisateur SupprimerUtilisateur = context.Utilisateur.FirstOrDefault(v => v.id == idUser);
 
-            SupprimerUtilisateur.id = idUser;
-            //SupprimerUtilisateur.profil_id = profil_idUser;
-            //SupprimerUtilisateur.nom = nomUser;
-            //SupprimerUtilisateur.prenom = prenomUser;
-            //SupprimerUtilisateur.mail = mailUser;
-            //SupprimerUtilisateur.password = passwordUser;
-            //SupprimerUtilisateur.last_login = last_loginUser;
-            //SupprimerUtilisateur.deconnexion = deconnexionUser;
-            //SupprimerUtilisateur.purge = purgeUser;
+           
 
             context.Utilisateur.Remove(SupprimerUtilisateur);
             context.SaveChanges();
-            UtilisateurModel UtilisateurMod = new UtilisateurModel();
-            UtilisateurMod.id = SupprimerUtilisateur.id;
-            //UtilisateurMod.profil_id = SupprimerUtilisateur.profil_id;
-            //UtilisateurMod.nom = SupprimerUtilisateur.nom;
-            //UtilisateurMod.prenom = SupprimerUtilisateur.prenom;
-            //UtilisateurMod.mail = SupprimerUtilisateur.mail;
-            //UtilisateurMod.password = SupprimerUtilisateur.password;
-            //UtilisateurMod.last_login = SupprimerUtilisateur.last_login;
-            //UtilisateurMod.deconnexion = SupprimerUtilisateur.deconnexion;
-            //UtilisateurMod.purge = SupprimerUtilisateur.purge;
-            return UtilisateurMod;
         }
     }
 }
