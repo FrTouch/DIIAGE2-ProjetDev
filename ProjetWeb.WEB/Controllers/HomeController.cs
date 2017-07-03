@@ -13,19 +13,20 @@ namespace ProjetWeb.WEB.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Reservation()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Page des réservations.";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Administration()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Page d'administration.";
 
             return View();
         }
+
 
         /// <summary>
         /// Méthode de vérification du compte lors de la connexion
