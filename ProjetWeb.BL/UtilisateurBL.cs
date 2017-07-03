@@ -15,13 +15,14 @@ namespace ProjetWeb.BL
         public List<UtilisateurModel> GetLesUtilisateur()
         {           
             List<UtilisateurModel> lesUtilisateur = new List<UtilisateurModel>();
-            lesUtilisateur = context.Utilisateur.Select(u=>new UtilisateurModel()
+            lesUtilisateur = context.Utilisateur.Select(u => new UtilisateurModel()
             {
                 id = u.id,
                 nom = u.nom,
                 prenom = u.prenom,
                 mail = u.mail,
-                profil_id = u.profil_id
+                profil_id = u.profil_id,
+                profil_nom = context.Profil.Where(v => v.id == u.profil_id).FirstOrDefault().nom
             }).ToList();
             return lesUtilisateur;
         }
@@ -43,12 +44,10 @@ namespace ProjetWeb.BL
             return unUtilisateur;
         }
 
-        public UtilisateurModel CreateUtilisateur(int idUser, int profil_idUser, string nomUser, string prenomUser, string mailUser, string passwordUser, DateTime last_loginUser, int deconnexionUser, bool purgeUser)
+        public UtilisateurModel CreateUtilisateur(string nomUser, string prenomUser, string mailUser, string passwordUser, DateTime last_loginUser, int deconnexionUser, bool purgeUser, string profilUser)
         {
             Utilisateur CreerUtilisateur = new Utilisateur();
 
-            CreerUtilisateur.id = idUser;
-            CreerUtilisateur.profil_id = profil_idUser;
             CreerUtilisateur.nom = nomUser;
             CreerUtilisateur.prenom = prenomUser;
             CreerUtilisateur.mail = mailUser;
@@ -56,6 +55,7 @@ namespace ProjetWeb.BL
             CreerUtilisateur.last_login = last_loginUser;
             CreerUtilisateur.deconnexion = deconnexionUser;
             CreerUtilisateur.purge = purgeUser;
+            CreerUtilisateur.profil_id = context.Profil.Where(v => v.nom == profilUser).FirstOrDefault().id;
 
             context.Utilisateur.Add(CreerUtilisateur);
             context.SaveChanges();

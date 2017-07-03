@@ -10,12 +10,18 @@
         <button type="button" class="btn btn-sm btn-primary" onclick="afficherUtilisateurs()">Utilisateurs</button>
         <button type="button" class="btn btn-sm btn-primary" onclick="afficherRessources()">Ressources</button>
         <button type="button" class="btn btn-sm btn-primary" onclick="afficherReservations()">Réservations</button>
+        <button type="button" class="btn btn-sm btn-primary" onclick="Cacher()">Cacher</button>
     </p>
 </div>
-<div id="Lst"></div>
+<div id="LstUsers"></div>
+<div id="LstRessources"></div>
+<div id="LstReservations"></div>
 
 <script type="text/javascript">
-     function afficherUtilisateurs() {
+    function Cacher() {
+        cacher();
+    }
+    function afficherUtilisateurs() {
 
          $.ajax({
              // Home ==> Contrôleur qui va chercher dans la fonction Create dans le contrôleur Ligne_resa
@@ -24,23 +30,26 @@
              // data représente les données retournées par le serveur
              success: function (data) {
 
-                 $('#Lst').html(data);
+                 $('#LstUsers').html(data);
                  //$('#formulaire').append(data);
              }
          })
     }
-     //function afficherRessources() {
+     function afficherRessources() {
 
-     //    $.ajax({
-     //        // Home ==> Contrôleur qui va chercher dans la fonction Create dans le contrôleur Ligne_resa
-     //        url: "/Ressources/Index",
-     //        type: 'GET',
-     //        // data représente les données retournées par le serveur
-     //        success: function (data) {
+         $.ajax({
+             // Home ==> Contrôleur qui va chercher dans la fonction Create dans le contrôleur Ligne_resa
+             url: "/Ressources/Index",
+             type: 'GET',
+             // data représente les données retournées par le serveur
+             success: function (data) {
 
-     //            $('#Lst').html(data);
-     //            //$('#formulaire').append(data);
-     //        }
-     //    })
-     //}
+                 $('#LstRessources').html(data);
+                 //$('#formulaire').append(data);
+             }
+         })
+     }
+     function Cacher() {
+         cacher();
+     }
 </script>

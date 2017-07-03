@@ -33,5 +33,6 @@ namespace ProjetWeb.DAL
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Type> Type { get; set; }
         public virtual DbSet<Utilisateur> Utilisateur { get; set; }
+
     }
 }
