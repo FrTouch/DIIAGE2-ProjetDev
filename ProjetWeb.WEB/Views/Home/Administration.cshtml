@@ -8,24 +8,39 @@
 <div class="btn-group-sm btn-toolbar" >
     <p>
         <button type="button" class="btn btn-sm btn-primary" onclick="afficherUtilisateurs()">Utilisateurs</button>
-        <button type="button" class="btn btn-sm btn-primary">Ressources</button>
-        <button type="button" class="btn btn-sm btn-primary">Réservations</button>
+        <button type="button" class="btn btn-sm btn-primary" onclick="afficherRessources()">Ressources</button>
+        <button type="button" class="btn btn-sm btn-primary" onclick="afficherReservations()">Réservations</button>
     </p>
 </div>
+<div id="Lst"></div>
 
 <script type="text/javascript">
      function afficherUtilisateurs() {
 
          $.ajax({
              // Home ==> Contrôleur qui va chercher dans la fonction Create dans le contrôleur Ligne_resa
-             url: "/Ligne_resa/Create",
+             url: "/Utilisateurs/Index",
              type: 'GET',
              // data représente les données retournées par le serveur
              success: function (data) {
 
-                 $('#formulaire').html(data);
+                 $('#Lst').html(data);
                  //$('#formulaire').append(data);
              }
          })
-     }
+    }
+     //function afficherRessources() {
+
+     //    $.ajax({
+     //        // Home ==> Contrôleur qui va chercher dans la fonction Create dans le contrôleur Ligne_resa
+     //        url: "/Ressources/Index",
+     //        type: 'GET',
+     //        // data représente les données retournées par le serveur
+     //        success: function (data) {
+
+     //            $('#Lst').html(data);
+     //            //$('#formulaire').append(data);
+     //        }
+     //    })
+     //}
 </script>
