@@ -15,13 +15,14 @@ namespace ProjetWeb.BL
         public List<UtilisateurModel> GetLesUtilisateur()
         {           
             List<UtilisateurModel> lesUtilisateur = new List<UtilisateurModel>();
-            lesUtilisateur = context.Utilisateur.Select(u=>new UtilisateurModel()
+            lesUtilisateur = context.Utilisateur.Select(u => new UtilisateurModel()
             {
                 id = u.id,
                 nom = u.nom,
                 prenom = u.prenom,
                 mail = u.mail,
-                profil_id = u.profil_id
+                profil_id = u.profil_id,
+                profil_nom = context.Profil.Where(v => v.id == u.profil_id).FirstOrDefault().nom
             }).ToList();
             return lesUtilisateur;
         }

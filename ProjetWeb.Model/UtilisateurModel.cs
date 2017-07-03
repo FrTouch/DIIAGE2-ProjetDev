@@ -17,14 +17,15 @@ namespace ProjetWeb.Model
         public System.DateTime last_login { get; set; }
         public int deconnexion { get; set; }
         public bool purge { get; set; }
+        public string profil_nom { get; set; }
 
-        public ProfilModel Profil { get; set; }
+        //public ProfilModel Profil { get; set; }
 
         public List<FonctionnaliteModel> LstReservation { get; set; }
 
         public UtilisateurModel() { }
 
-        public UtilisateurModel(int idUser, int profil_idUser, string nomUser, string prenomUser, string mailUser, string passwordUser, DateTime last_loginUser, int deconnexionUser, bool purgeUser)
+        public UtilisateurModel(int idUser, int profil_idUser, string nomUser, string prenomUser, string mailUser, string passwordUser, DateTime last_loginUser, int deconnexionUser, bool purgeUser, string profilUser)
         {
             id = idUser;
             profil_id = profil_idUser;
@@ -35,6 +36,7 @@ namespace ProjetWeb.Model
             last_login = last_loginUser;
             deconnexion = deconnexionUser;
             purge = purgeUser;
+            profil_nom = profilUser;
         }
     }
 }
