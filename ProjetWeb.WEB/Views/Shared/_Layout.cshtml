@@ -18,11 +18,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Gestion des réservations", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Gestion des réservations", "Reservation", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Accueil", "Index", "Home")</li>
                     <li>@Html.ActionLink("Réservations", "Reservation", "Home")</li>
                     <li>@Html.ActionLink("Administration", "Administration", "Home")</li>
                     <li>@Html.ActionLink("Se déconnecter", "Deconnexion", "Home")</li>

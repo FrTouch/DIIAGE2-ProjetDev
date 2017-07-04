@@ -5,7 +5,7 @@
     ViewBag.Title = "Réservations";
 }
 
-<h2>Index</h2>
+<h2>Gestion des réservations</h2>
 
 @*<p>
     @Html.ActionLink("Ajouter une réservation", "Create")
@@ -29,15 +29,15 @@
         <td>
             @Html.DisplayFor(modelItem => item.date_resa)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.purge)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Utilisateur.nom)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |*@
             @Html.ActionLink("Delete", "Delete", new { id=item.id })
         </td>
     </tr>
