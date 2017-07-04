@@ -50,7 +50,7 @@ namespace ProjetWeb.BL
             return uneRessource;
         }
 
-        public RessourceModel CreateRessource(string nomRess, string descriptionRess, DateTime date_achatRess, string qr_codeRess,string typeRessource)
+        public RessourceModel CreateRessource(string nomRess, string descriptionRess, DateTime date_achatRess, string qr_codeRess)
         {
             Ressource CreerRessource = new Ressource();
 
@@ -58,7 +58,7 @@ namespace ProjetWeb.BL
             CreerRessource.description = descriptionRess;
             CreerRessource.date_achat = date_achatRess;
             CreerRessource.qr_code = qr_codeRess;
-            CreerRessource.type_id = context.Type.Where(t => t.nom == typeRessource).FirstOrDefault().id;
+            //CreerRessource.type_id = context.Type.Where(t => t.nom == typeRessource).FirstOrDefault().id;
             context.Ressource.Add(CreerRessource);
             context.SaveChanges();
             RessourceModel RessourceMod = new RessourceModel();
