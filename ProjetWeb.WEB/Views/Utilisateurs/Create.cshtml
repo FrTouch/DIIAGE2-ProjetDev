@@ -1,7 +1,7 @@
 ﻿@model ProjetWeb.Model.UtilisateurModel
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Ajouter un Utilisateur";
 }
 
 <h2>Création d'un Utilisateur</h2>
@@ -53,7 +53,7 @@
                     });
                 }
 
-                @Html.DropDownListFor(model => model.profil_id, new SelectList(listItems), "Sélectionner le type de compte")
+                @Html.DropDownListFor(model => model.profil_id, listItems, "Sélectionner le type de compte")
                 @*@Html.EditorFor(model => model.profil_nom)*@
                 @Html.ValidationMessageFor(model => model.profil_nom, "", new { @class = "text-danger" })
             </div>
