@@ -104,8 +104,6 @@ namespace ProjetWeb.BL
         {
             Utilisateur SupprimerUtilisateur = context.Utilisateur.FirstOrDefault(v => v.id == idUser);
 
-           
-
             context.Utilisateur.Remove(SupprimerUtilisateur);
             context.SaveChanges();
         }
