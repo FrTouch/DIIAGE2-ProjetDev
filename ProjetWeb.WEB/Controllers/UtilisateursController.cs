@@ -51,11 +51,11 @@ namespace ProjetWeb.WEB.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "nom,prenom,mail,password,last_login,deconnexion,purge,profil_nom")] UtilisateurModel utilisateur)
+        public ActionResult Create([Bind(Include = "nom,prenom,mail,password,profil_nom")] UtilisateurModel utilisateur)
         {
             if (ModelState.IsValid)
             {
-                BLUser.CreateUtilisateur(utilisateur.nom,utilisateur.prenom,utilisateur.mail,utilisateur.password,utilisateur.last_login,utilisateur.deconnexion,utilisateur.purge, utilisateur.profil_nom);
+                BLUser.CreateUtilisateur(utilisateur.nom,utilisateur.prenom,utilisateur.mail,utilisateur.password, utilisateur.profil_nom);
                 //db.Utilisateur.Add(utilisateur);
                 //db.SaveChanges();
                 return RedirectToAction("Index");

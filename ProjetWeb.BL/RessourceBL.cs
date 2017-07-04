@@ -50,28 +50,24 @@ namespace ProjetWeb.BL
             return uneRessource;
         }
 
-        public RessourceModel CreateRessource(int idRess, int type_idRess, string nomRess, bool dispoRess, string descriptionRess, DateTime date_achatRess, string qr_codeRess,bool purgeRess)
+        public RessourceModel CreateRessource(string nomRess, string descriptionRess, DateTime date_achatRess, string qr_codeRess,string typeRessource)
         {
             Ressource CreerRessource = new Ressource();
 
-            CreerRessource.id = idRess;
-            CreerRessource.type_id = type_idRess;
             CreerRessource.nom = nomRess;
-            CreerRessource.dispo = dispoRess;
             CreerRessource.description = descriptionRess;
             CreerRessource.date_achat = date_achatRess;
             CreerRessource.qr_code = qr_codeRess;
-            CreerRessource.purge = purgeRess;
+            CreerRessource.type_id = context.Type.Where(t => t.nom == typeRessource).FirstOrDefault().id;
             context.Ressource.Add(CreerRessource);
             context.SaveChanges();
             RessourceModel RessourceMod = new RessourceModel();
-            RessourceMod.id = CreerRessource.id;
-            RessourceMod.type_id = CreerRessource.type_id;
+            
             RessourceMod.nom = CreerRessource.nom;
             RessourceMod.dispo = CreerRessource.dispo;
             RessourceMod.date_achat = CreerRessource.date_achat;
             RessourceMod.qr_code = CreerRessource.qr_code;
-            RessourceMod.purge = CreerRessource.purge;
+            RessourceMod.type_id = CreerRessource.type_id;
             return RessourceMod;
         }
 

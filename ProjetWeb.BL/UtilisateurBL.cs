@@ -44,7 +44,7 @@ namespace ProjetWeb.BL
             return unUtilisateur;
         }
 
-        public UtilisateurModel CreateUtilisateur(string nomUser, string prenomUser, string mailUser, string passwordUser, DateTime last_loginUser, int deconnexionUser, bool purgeUser, string profilUser)
+        public UtilisateurModel CreateUtilisateur(string nomUser, string prenomUser, string mailUser, string passwordUser, string profilUser)
         {
             Utilisateur CreerUtilisateur = new Utilisateur();
 
@@ -52,23 +52,16 @@ namespace ProjetWeb.BL
             CreerUtilisateur.prenom = prenomUser;
             CreerUtilisateur.mail = mailUser;
             CreerUtilisateur.password = passwordUser;
-            CreerUtilisateur.last_login = last_loginUser;
-            CreerUtilisateur.deconnexion = deconnexionUser;
-            CreerUtilisateur.purge = purgeUser;
             CreerUtilisateur.profil_id = context.Profil.Where(v => v.nom == profilUser).FirstOrDefault().id;
 
             context.Utilisateur.Add(CreerUtilisateur);
             context.SaveChanges();
             UtilisateurModel UtilisateurMod = new UtilisateurModel();
-            UtilisateurMod.id = CreerUtilisateur.id;
             UtilisateurMod.profil_id = CreerUtilisateur.profil_id;
             UtilisateurMod.nom = CreerUtilisateur.nom;
             UtilisateurMod.prenom = CreerUtilisateur.prenom;
             UtilisateurMod.mail = CreerUtilisateur.mail;
             UtilisateurMod.password = CreerUtilisateur.password;
-            UtilisateurMod.last_login = CreerUtilisateur.last_login;
-            UtilisateurMod.deconnexion = CreerUtilisateur.deconnexion;
-            UtilisateurMod.purge = CreerUtilisateur.purge;
             return UtilisateurMod;
         }
 

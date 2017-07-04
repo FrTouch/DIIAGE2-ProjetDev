@@ -53,8 +53,8 @@
                     });
                 }
 
-                @Html.DropDownListFor(model => model.profil_id, listItems, "Sélectionner le type de compte")
-                @*@Html.EditorFor(model => model.profil_nom)*@
+                @Html.DropDownListFor(model => model.profil_nom, listItems, "Sélectionner le type de compte", new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.EditorFor(model => model.profil_nom, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.ValidationMessageFor(model => model.profil_nom, "", new { @class = "text-danger" })
             </div>
         </div>

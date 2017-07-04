@@ -51,13 +51,13 @@ namespace ProjetWeb.WEB.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,type_id,nom,dispo,description,date_achat,qr_code,purge")] RessourceModel ressource)
+        public ActionResult Create([Bind(Include = "nom,description,date_achat,qr_code,typeRes")] RessourceModel ressource)
         {
             if (ModelState.IsValid)
             {
                 //db.Ressource.Add(ressource);
                 //db.SaveChanges();
-                BLRessource.CreateRessource(ressource.id, ressource.type_id, ressource.nom, ressource.dispo, ressource.description, ressource.date_achat, ressource.qr_code, ressource.purge);
+                BLRessource.CreateRessource(ressource.nom, ressource.description, ressource.date_achat, ressource.qr_code, ressource.typeRes);
                 return RedirectToAction("Index");
             }
 

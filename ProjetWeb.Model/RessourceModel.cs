@@ -16,14 +16,15 @@ namespace ProjetWeb.Model
         public System.DateTime date_achat { get; set; }
         public string qr_code { get; set; }
         public bool purge { get; set; }
+        public string typeRes { get; set; }
 
-        public TypeModel Type { get; set; }
+        //public TypeModel Type { get; set; }
         
         public List<Ligne_resaModel> LstLigne_resa { get; set; }
 
         public RessourceModel() { }
 
-        public RessourceModel(int idRessource, int type_idRessource, string nomRessource, bool dispoRessource, string descriptionRessource, DateTime date_achatRessource, string qr_codeRessource, bool purgeRessource) {
+        public RessourceModel(int idRessource, int type_idRessource, string nomRessource, bool dispoRessource, string descriptionRessource, DateTime date_achatRessource, string qr_codeRessource, bool purgeRessource, string typeRessource) {
             id = idRessource;
             type_id = type_idRessource;
             nom = nomRessource;
@@ -32,6 +33,7 @@ namespace ProjetWeb.Model
             date_achat = date_achatRessource;
             qr_code = qr_codeRessource;
             purge = purgeRessource;
+            typeRes = typeRessource;
         }
     }
 }
