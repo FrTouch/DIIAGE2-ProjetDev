@@ -45,7 +45,7 @@ namespace ProjetWeb.WEB.Controllers
             }
             return View(reservation);
         }
-        // A FAIRE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
         // GET: Reservations/Create
         //public ActionResult Create()
         //{

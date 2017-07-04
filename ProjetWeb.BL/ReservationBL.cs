@@ -2,6 +2,7 @@
 using ProjetWeb.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,6 +58,14 @@ namespace ProjetWeb.BL
             ReservationMod.date_resa = CreerReservation.date_resa;
             ReservationMod.purge = CreerReservation.purge;
             return ReservationMod;
+        }
+
+        public void DeleteReservation(int idRes)
+        {
+            Reservation SupprimerReservation = context.Reservation.FirstOrDefault(v => v.id == idRes);
+
+            context.Reservation.Remove(SupprimerReservation);
+            context.SaveChanges();
         }
     }
 }
