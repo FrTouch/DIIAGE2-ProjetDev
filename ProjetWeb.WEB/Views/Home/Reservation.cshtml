@@ -13,14 +13,14 @@
     <div class="panel panel-info">
         <div class="panel-heading" role="tab" id="headingOne">
             <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <a data-toggle="collapse" onclick="afficherReservation()" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" id="listeReservations">
                     Liste de vos <strong>Réservations</strong>
                 </a>
             </h4>
         </div>
         <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
-                Vos réservation
+                Vos réservations
             </div>
         </div>
     </div>
@@ -82,6 +82,20 @@
 
                  $('#formulaire').html(data);
                  //$('#formulaire').append(data);
+             }
+         })
+    }
+
+     function afficherReservation() {
+
+         $.ajax({
+             // Home ==> Contrôleur qui va chercher dans la fonction Index dans le contrôleur Ligne_resa
+             url: "/Ligne_resa/ListeReservations",
+             type: 'GET',
+             // data représente les données retournées par le serveur
+             success: function (data) {
+
+                 $('#listeReservations').html(data);
              }
          })
      }
