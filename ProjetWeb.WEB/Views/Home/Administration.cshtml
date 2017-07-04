@@ -10,6 +10,7 @@
         <button type="button" class="btn btn-sm btn-primary" onclick="afficherUtilisateurs();afficher_choix('Utilisateurs');">Utilisateurs</button>
         <button type="button" class="btn btn-sm btn-primary" onclick="afficherRessources();afficher_choix('Ressources');">Ressources</button>
         <button type="button" class="btn btn-sm btn-primary" onclick="afficherReservations();afficher_choix('Réservations');">Réservations</button>
+        <button type="button" class="btn btn-sm btn-primary" onclick="afficherLignesReservations();afficher_choix('Lignes de réservation');">Lignes de réservation</button>
     </p>
 </div>
 
@@ -68,6 +69,21 @@
          $.ajax({
              // Home ==> Contrôleur qui va chercher dans la fonction Create dans le contrôleur Ligne_resa
              url: "/Reservations/Index",
+             type: 'GET',
+             // data représente les données retournées par le serveur
+             success: function (data) {
+
+                 $('#results').html(data);
+                 //$('#formulaire').append(data);
+             }
+         })
+     }
+
+     function afficherLignesReservations() {
+
+         $.ajax({
+             // Home ==> Contrôleur qui va chercher dans la fonction Create dans le contrôleur Ligne_resa
+             url: "/Ligne_resa/Index",
              type: 'GET',
              // data représente les données retournées par le serveur
              success: function (data) {

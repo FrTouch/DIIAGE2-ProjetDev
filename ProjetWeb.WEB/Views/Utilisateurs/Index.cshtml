@@ -20,22 +20,22 @@
         <th>
             @Html.DisplayNameFor(model => model.mail)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.password)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.last_login)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.deconnexion)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.purge)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.profil_nom)
         </th>
-        <th></th>
+        <th>Actions</th>
     </tr>
 
 @foreach (var item in Model) {
@@ -49,9 +49,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.mail)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.password)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.last_login)
         </td>

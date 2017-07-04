@@ -1,5 +1,4 @@
-﻿
-@model List<ProjetWeb.Model.ReservationModel>
+﻿@model IEnumerable<ProjetWeb.Model.ReservationModel>
 
 @{
     ViewBag.Title = "Réservations";
@@ -15,13 +14,13 @@
         <th>
             @Html.DisplayNameFor(model => model.date_resa)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.purge)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Utilisateur.nom)
         </th>
-        <th></th>
+        <th>Actions</th>
     </tr>
 
 @foreach (var item in Model) {

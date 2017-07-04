@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<ProjetWeb.Model.Ligne_resaModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "lignes de réservation";
 }
 
-<h2>Index</h2>
+<h2>Gestion des lignes de réservation</h2>
 
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
 <table class="table">
     <tr>
         <th>
@@ -17,16 +17,16 @@
         <th>
             @Html.DisplayNameFor(model => model.date_fin)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.purge)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Reservation.id)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ressourceLigne)
         </th>
-        <th></th>
+        <th>Actions</th>
     </tr>
 
 @foreach (var item in Model) {
@@ -37,9 +37,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.date_fin)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.purge)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Reservation.id)
         </td>
@@ -47,8 +47,8 @@
             @Html.DisplayFor(modelItem => item.ressourceLigne)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
             @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
