@@ -1,4 +1,10 @@
-﻿namespace ProjetWeb.Model
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjetWeb.Model
 {
     public class ReservationModel
     {
@@ -11,5 +17,13 @@
         public UtilisateurModel Utilisateur { get; set; }
 
         public ReservationModel() { }
+
+        public ReservationModel(int idReservation, int utilisateur_idReservation, DateTime date_resaReservation, bool purgeReservation)
+        {
+            id = idReservation;
+            utilisateur_id = utilisateur_idReservation;
+            date_resa = date_resaReservation;
+            purge = purgeReservation;
+        }
     }
 }

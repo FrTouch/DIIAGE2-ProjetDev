@@ -6,19 +6,22 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using ProjetWeb.DAL;
+using ProjetWeb.BL;
+using ProjetWeb.Model;
 
 namespace ProjetWeb.WEB.Controllers
 {
     public class RessourcesController : Controller
     {
-        private Projet_GestionEntities db = new Projet_GestionEntities();
+        //private Projet_GestionEntities db = new Projet_GestionEntities();
+        private RessourceBL BLRessource = new RessourceBL();
 
         // GET: Ressources
         public ActionResult Index()
         {
-            var ressource = db.Ressource.Include(r => r.Type);
-            return View(ressource.ToList());
+            List<RessourceModel> ressource = new List<RessourceModel>();
+            //var ressource = db.Ressource.Include(r => r.Type);
+            return View(ressource);
         }
 
         // GET: Ressources/Details/5
@@ -28,7 +31,7 @@ namespace ProjetWeb.WEB.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Ressource ressource = db.Ressource.Find(id);
+            RessourceModel ressource = BLRessource.GetUneRessourceById(id.GetValueOrDefault());
             if (ressource == null)
             {
                 return HttpNotFound();
@@ -39,7 +42,7 @@ namespace ProjetWeb.WEB.Controllers
         // GET: Ressources/Create
         public ActionResult Create()
         {
-            ViewBag.type_id = new SelectList(db.Type, "id", "nom");
+            //ViewBag.type_id = new SelectList(db.Type, "id", "nom");
             return View();
         }
 
@@ -48,16 +51,17 @@ namespace ProjetWeb.WEB.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,type_id,nom,dispo,description,date_achat,qr_code,purge")] Ressource ressource)
+        public ActionResult Create([Bind(Include = "id,type_id,nom,dispo,description,date_achat,qr_code,purge")] RessourceModel ressource)
         {
             if (ModelState.IsValid)
             {
-                db.Ressource.Add(ressource);
-                db.SaveChanges();
+                //db.Ressource.Add(ressource);
+                //db.SaveChanges();
+                BLRessource.CreateRessource(ressource.id, ressource.type_id, ressource.nom, ressource.dispo, ressource.description, ressource.date_achat, ressource.qr_code, ressource.purge);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.type_id = new SelectList(db.Type, "id", "nom", ressource.type_id);
+            //ViewBag.type_id = new SelectList(db.Type, "id", "nom", ressource.type_id);
             return View(ressource);
         }
 
@@ -68,12 +72,12 @@ namespace ProjetWeb.WEB.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Ressource ressource = db.Ressource.Find(id);
+            RessourceModel ressource = BLRessource.GetUneRessourceById(id.GetValueOrDefault());
             if (ressource == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.type_id = new SelectList(db.Type, "id", "nom", ressource.type_id);
+            //ViewBag.type_id = new SelectList(db.Type, "id", "nom", ressource.type_id);
             return View(ressource);
         }
 
@@ -82,15 +86,17 @@ namespace ProjetWeb.WEB.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,type_id,nom,dispo,description,date_achat,qr_code,purge")] Ressource ressource)
+        public ActionResult Edit([Bind(Include = "id,type_id,nom,dispo,description,date_achat,qr_code,purge")] RessourceModel ressource)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(ressource).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(ressource).State = EntityState.Modified;
+                //db.SaveChanges();
+                BLRessource.(ressource.id, ressource.type_id, ressource.nom, ressource.dispo, ressource.description, ressource.date_achat, ressource.qr_code, ressource.purge);
+
                 return RedirectToAction("Index");
             }
-            ViewBag.type_id = new SelectList(db.Type, "id", "nom", ressource.type_id);
+            //ViewBag.type_id = new SelectList(db.Type, "id", "nom", ressource.type_id);
             return View(ressource);
         }
 

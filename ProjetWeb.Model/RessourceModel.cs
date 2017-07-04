@@ -18,9 +18,20 @@ namespace ProjetWeb.Model
         public bool purge { get; set; }
 
         public TypeModel Type { get; set; }
-
+        
         public List<Ligne_resaModel> LstLigne_resa { get; set; }
 
         public RessourceModel() { }
+
+        public RessourceModel(int idRessource, int type_idRessource, string nomRessource, bool dispoRessource, string descriptionRessource, DateTime date_achatRessource, string qr_codeRessource, bool purgeRessource) {
+            id = idRessource;
+            type_id = type_idRessource;
+            nom = nomRessource;
+            dispo = dispoRessource;
+            description = descriptionRessource;
+            date_achat = date_achatRessource;
+            qr_code = qr_codeRessource;
+            purge = purgeRessource;
+        }
     }
 }
