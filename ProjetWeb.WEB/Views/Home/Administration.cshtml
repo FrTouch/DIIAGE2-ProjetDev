@@ -5,18 +5,34 @@
 
 <br />  
 
-<div class="btn-group-sm btn-toolbar" >
+<div class="btn-group-sm btn-toolbar" id="selection" >
     <p>
-        <button type="button" class="btn btn-sm btn-primary" onclick="afficherUtilisateurs()">Utilisateurs</button>
-        <button type="button" class="btn btn-sm btn-primary" onclick="afficherRessources()">Ressources</button>
-        <button type="button" class="btn btn-sm btn-primary" onclick="afficherReservations()">Réservations</button>
+        <button type="button" class="btn btn-sm btn-primary" onclick="afficherUtilisateurs();afficher_choix('Utilisateurs');">Utilisateurs</button>
+        <button type="button" class="btn btn-sm btn-primary" onclick="afficherRessources();afficher_choix('Ressources');">Ressources</button>
+        <button type="button" class="btn btn-sm btn-primary" onclick="afficherReservations();afficher_choix('Réservations');">Réservations</button>
     </p>
 </div>
-<div id="LstUsers"></div>
-<div id="LstRessources"></div>
-<div id="LstReservations"></div>
+
+<div id="results"></div>
+
+<div id="section_choisie" class="alert alert-info" role="alert">
+    Sélectionnez une partie de l'application à administrer.
+</div>
 
 <script type="text/javascript">
+
+    function cacher() {
+        var results = document.getElementById("results");
+        for (var i = 0; i < results.length; i++) {
+            results[i].style.display = "none";
+        };
+        document.getElementById('choisir_categorie').style.display = "none";
+    }
+
+    function afficher_choix(choix) {
+        document.getElementById('section_choisie').innerHTML = "Vous administrez actuellement les <strong>" + choix + "</strong>. <a href='#selection'>Retour à la sélection.</a>";
+        document.getElementById('section_choisie').style.display = "block";
+    }
 
     function afficherUtilisateurs() {
          $.ajax({
@@ -26,11 +42,12 @@
              // data représente les données retournées par le serveur
              success: function (data) {
 
-                 $('#LstUsers').html(data);
+                 $('#results').html(data);
                  //$('#formulaire').append(data);
              }
          })
     }
+
      function afficherRessources() {
 
          $.ajax({
@@ -40,7 +57,22 @@
              // data représente les données retournées par le serveur
              success: function (data) {
 
-                 $('#LstRessources').html(data);
+                 $('#results').html(data);
+                 //$('#formulaire').append(data);
+             }
+         })
+    }
+
+     function afficherReservations() {
+
+         $.ajax({
+             // Home ==> Contrôleur qui va chercher dans la fonction Create dans le contrôleur Ligne_resa
+             url: "/Reservations/Index",
+             type: 'GET',
+             // data représente les données retournées par le serveur
+             success: function (data) {
+
+                 $('#results').html(data);
                  //$('#formulaire').append(data);
              }
          })
