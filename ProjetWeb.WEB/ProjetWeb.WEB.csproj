@@ -227,6 +227,7 @@
     <Content Include="Views\Reservations\Edit.cshtml" />
     <Content Include="Views\Reservations\Index.cshtml" />
     <Content Include="Views\Utilisateurs\Create1.cshtml" />
+    <Content Include="Views\Ligne_resa\ListeReservations.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

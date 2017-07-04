@@ -26,13 +26,13 @@
         <th>
             @Html.DisplayNameFor(model => model.qr_code)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.purge)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.typeRes)
         </th>
-        <th></th>
+        <th>Actions</th>
     </tr>
 
 @foreach (var item in Model) {
@@ -52,9 +52,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.qr_code)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.purge)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.typeRes)
         </td>
