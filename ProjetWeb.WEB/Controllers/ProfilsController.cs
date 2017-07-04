@@ -89,6 +89,31 @@ namespace ProjetWeb.WEB.Controllers
             return View(profil);
         }
 
+        //public ActionResult afficherProfilsId(int id)
+        //{
+        //        @{
+        //        List<SelectListItem>
+        //          listItems = new List<SelectListItem>();
+        //        listItems.Add(new SelectListItem
+        //        {
+        //            Text = "Administrateur",
+        //            Value = "1"
+        //        });
+        //        listItems.Add(new SelectListItem
+        //        {
+        //            Text = "Lecteur",
+        //            Value = "2"
+        //        });
+        //        listItems.Add(new SelectListItem
+        //        {
+        //            Text = "Utilisateur",
+        //            Value = "3"
+        //        });
+        //    }
+
+        //    return View();
+        //}
+
         // GET: Profils/Delete/5
         public ActionResult Delete(int? id)
         {

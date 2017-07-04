@@ -10,7 +10,6 @@
         <button type="button" class="btn btn-sm btn-primary" onclick="afficherUtilisateurs()">Utilisateurs</button>
         <button type="button" class="btn btn-sm btn-primary" onclick="afficherRessources()">Ressources</button>
         <button type="button" class="btn btn-sm btn-primary" onclick="afficherReservations()">Réservations</button>
-        <button type="button" class="btn btn-sm btn-primary" onclick="Cacher()">Cacher</button>
     </p>
 </div>
 <div id="LstUsers"></div>
@@ -18,11 +17,8 @@
 <div id="LstReservations"></div>
 
 <script type="text/javascript">
-    function Cacher() {
-        cacher();
-    }
-    function afficherUtilisateurs() {
 
+    function afficherUtilisateurs() {
          $.ajax({
              // Home ==> Contrôleur qui va chercher dans la fonction Create dans le contrôleur Ligne_resa
              url: "/Utilisateurs/Index",
@@ -48,8 +44,5 @@
                  //$('#formulaire').append(data);
              }
          })
-     }
-     function Cacher() {
-         cacher();
      }
 </script>

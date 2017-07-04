@@ -59,15 +59,11 @@
             @Html.DisplayFor(modelItem => item.deconnexion)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.purge)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.profil_nom)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("Modifier", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Supprimer", "Delete", new { id=item.id })
         </td>
     </tr>
 }
