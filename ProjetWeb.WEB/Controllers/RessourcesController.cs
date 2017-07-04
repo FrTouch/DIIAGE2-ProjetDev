@@ -92,7 +92,7 @@ namespace ProjetWeb.WEB.Controllers
             {
                 //db.Entry(ressource).State = EntityState.Modified;
                 //db.SaveChanges();
-                BLRessource.(ressource.id, ressource.type_id, ressource.nom, ressource.dispo, ressource.description, ressource.date_achat, ressource.qr_code, ressource.purge);
+                BLRessource.ModifierRessource(ressource.id, ressource.type_id, ressource.nom, ressource.dispo, ressource.description, ressource.date_achat, ressource.qr_code, ressource.purge);
 
                 return RedirectToAction("Index");
             }
@@ -107,12 +107,12 @@ namespace ProjetWeb.WEB.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Ressource ressource = db.Ressource.Find(id);
-            if (ressource == null)
+            BLRessource.DeleteRessource(id.GetValueOrDefault());
+            if (BLRessource == null)
             {
                 return HttpNotFound();
             }
-            return View(ressource);
+            return View(BLRessource);
         }
 
         // POST: Ressources/Delete/5
@@ -120,19 +120,20 @@ namespace ProjetWeb.WEB.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Ressource ressource = db.Ressource.Find(id);
-            db.Ressource.Remove(ressource);
-            db.SaveChanges();
+            BLRessource.DeleteRessource(id);
+            //Ressource ressource = db.Ressource.Find(id);
+            //db.Ressource.Remove(ressource);
+            //db.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }
