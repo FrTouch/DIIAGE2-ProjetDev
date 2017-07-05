@@ -10,7 +10,7 @@
         public bool purge { get; set; }
         public string ressourceLigne { get; set; }
 
-        //public RessourceModel Ressource { get; set; }
+        public RessourceModel Ressource { get; set; }
         public ReservationModel Reservation { get; set; }
        
 

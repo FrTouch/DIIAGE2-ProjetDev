@@ -59,16 +59,16 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Type.nom)
+            @Html.DisplayNameFor(model => model.typeRes)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Type.nom)
+            @Html.DisplayFor(model => model.typeRes)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Modifier", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Retour à la liste des ressources", "Index")
 </p>
