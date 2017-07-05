@@ -18,7 +18,7 @@ namespace ProjetWeb.WEB.Controllers
         // GET: Utilisateurs
         public ActionResult Index()
         {
-            List<UtilisateurModel> utilisateur = new List<UtilisateurModel>();
+            IEnumerable<UtilisateurModel> utilisateur = new List<UtilisateurModel>();
             utilisateur = BLUser.GetLesUtilisateur();
             //db.Utilisateur.Include(u => u.Profil);
             return View(utilisateur);

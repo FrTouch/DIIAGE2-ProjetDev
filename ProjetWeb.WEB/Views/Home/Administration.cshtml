@@ -11,6 +11,8 @@
         <button type="button" class="btn btn-sm btn-primary" onclick="afficherRessources();afficher_choix('Ressources');">Ressources</button>
         <button type="button" class="btn btn-sm btn-primary" onclick="afficherReservations();afficher_choix('Réservations');">Réservations</button>
         <button type="button" class="btn btn-sm btn-primary" onclick="afficherLignesReservations();afficher_choix('Lignes de réservation');">Lignes de réservation</button>
+        <button type="button" class="btn btn-sm btn-primary" onclick="afficherProfil(); afficher_choix('Profils');">Profils</button>
+        <button type="button" class="btn btn-sm btn-primary" onclick="afficherFonctionnalites(); afficher_choix('Fonctionnalites');">Fonctionnalites</button>
     </p>
 </div>
 
@@ -92,5 +94,33 @@
                  //$('#formulaire').append(data);
              }
          })
+
+         function afficherProfil() {
+
+             $.ajax({
+                 // Home ==> Contrôleur qui va chercher dans la fonction Create dans le contrôleur Ligne_resa
+                 url: "/Profils/Index",
+                 type: 'GET',
+                 // data représente les données retournées par le serveur
+                 success: function (data) {
+
+                     $('#results').html(data);
+                     //$('#formulaire').append(data);
+                 }
+             })
+
+             function afficherFonctionnalites() {
+
+                 $.ajax({
+                     // Home ==> Contrôleur qui va chercher dans la fonction Create dans le contrôleur Ligne_resa
+                     url: "/Fonctionnalites/Index",
+                     type: 'GET',
+                     // data représente les données retournées par le serveur
+                     success: function (data) {
+
+                         $('#results').html(data);
+                         //$('#formulaire').append(data);
+                     }
+                 })
      }
 </script>
