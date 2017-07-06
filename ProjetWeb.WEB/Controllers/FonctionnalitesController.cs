@@ -7,17 +7,21 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ProjetWeb.DAL;
+using ProjetWeb.BL;
+using ProjetWeb.Model;
 
 namespace ProjetWeb.WEB.Controllers
 {
     public class FonctionnalitesController : Controller
     {
-        private Projet_GestionEntities db = new Projet_GestionEntities();
-
+        //private Projet_GestionEntities db = new Projet_GestionEntities();
+        private FonctionnaliteBL BLFonction = new FonctionnaliteBL();
         // GET: Fonctionnalites
         public ActionResult Index()
         {
-            return View(db.Fonctionnalite.ToList());
+            List<FonctionnaliteModel> fonction = new List<FonctionnaliteModel>();
+            fonction = BLFonction.GetLesFonctionnalite();
+            return View(fonction);
         }
 
         // GET: Fonctionnalites/Details/5
@@ -27,7 +31,7 @@ namespace ProjetWeb.WEB.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Fonctionnalite fonctionnalite = db.Fonctionnalite.Find(id);
+            FonctionnaliteModel fonctionnalite = BLFonction.GetUneFonctionnaliteById(id.GetValueOrDefault());
             if (fonctionnalite == null)
             {
                 return HttpNotFound();
@@ -46,12 +50,13 @@ namespace ProjetWeb.WEB.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,nom")] Fonctionnalite fonctionnalite)
+        public ActionResult Create([Bind(Include = "nom")] Fonctionnalite fonctionnalite)
         {
             if (ModelState.IsValid)
             {
-                db.Fonctionnalite.Add(fonctionnalite);
-                db.SaveChanges();
+                BLFonction.CreateFonction(fonctionnalite.nom);
+                //db.Fonctionnalite.Add(fonctionnalite);
+                //db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +70,7 @@ namespace ProjetWeb.WEB.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Fonctionnalite fonctionnalite = db.Fonctionnalite.Find(id);
+            FonctionnaliteModel fonctionnalite = BLFonction.GetUneFonctionnaliteById(id.GetValueOrDefault());
             if (fonctionnalite == null)
             {
                 return HttpNotFound();
@@ -82,8 +87,9 @@ namespace ProjetWeb.WEB.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(fonctionnalite).State = EntityState.Modified;
-                db.SaveChanges();
+                BLFonction.ModifierFonctionnalite(fonctionnalite.id, fonctionnalite.nom);
+                //db.Entry(fonctionnalite).State = EntityState.Modified;
+                //db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(fonctionnalite);
@@ -96,12 +102,13 @@ namespace ProjetWeb.WEB.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Fonctionnalite fonctionnalite = db.Fonctionnalite.Find(id);
-            if (fonctionnalite == null)
+            BLFonction.DeleteFonction(id.GetValueOrDefault());
+            //Fonctionnalite fonctionnalite = db.Fonctionnalite.Find(id);
+            if (BLFonction == null)
             {
                 return HttpNotFound();
             }
-            return View(fonctionnalite);
+            return View();
         }
 
         // POST: Fonctionnalites/Delete/5
@@ -109,19 +116,20 @@ namespace ProjetWeb.WEB.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Fonctionnalite fonctionnalite = db.Fonctionnalite.Find(id);
-            db.Fonctionnalite.Remove(fonctionnalite);
-            db.SaveChanges();
+            BLFonction.DeleteFonction(id);
+            //Fonctionnalite fonctionnalite = db.Fonctionnalite.Find(id);
+            //db.Fonctionnalite.Remove(fonctionnalite);
+            //db.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }

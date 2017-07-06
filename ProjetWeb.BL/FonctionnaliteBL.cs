@@ -2,6 +2,7 @@
 using ProjetWeb.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,6 +35,39 @@ namespace ProjetWeb.BL
                     nom = f.nom
                 }).FirstOrDefault();
             return uneFonctionnalite;
+        }
+
+        public FonctionnaliteModel CreateFonction(string nomFonc)
+        {
+            Fonctionnalite CreerFonction = new Fonctionnalite();
+
+            CreerFonction.nom = nomFonc;
+            context.Fonctionnalite.Add(CreerFonction);
+            context.SaveChanges();
+            FonctionnaliteModel FonctionMod = new FonctionnaliteModel();
+            FonctionMod.nom = CreerFonction.nom;
+            return FonctionMod;
+        }
+
+        public FonctionnaliteModel ModifierFonctionnalite(int idFonc, string nomFonc)
+        {
+            Fonctionnalite ModifierFonction = new Fonctionnalite();
+            ModifierFonction.id = idFonc;
+            ModifierFonction.nom = nomFonc;
+            context.Entry(ModifierFonction).State = EntityState.Modified;
+            context.SaveChanges();
+            FonctionnaliteModel FonctionMod = new FonctionnaliteModel();
+            FonctionMod.id = ModifierFonction.id;
+            FonctionMod.nom = ModifierFonction.nom;
+            return FonctionMod;
+        }
+
+        public void DeleteFonction(int idFonc)
+        {
+            Fonctionnalite SupprimerFonction = context.Fonctionnalite.FirstOrDefault(v => v.id == idFonc);
+
+            context.Fonctionnalite.Remove(SupprimerFonction);
+            context.SaveChanges();
         }
     }
 }
