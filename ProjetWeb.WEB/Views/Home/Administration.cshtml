@@ -7,12 +7,12 @@
 
 <div class="btn-group-sm btn-toolbar" id="selection" >
     <p>
-        <button type="button" class="btn btn-sm btn-primary" onclick="afficherUtilisateurs();afficher_choix('Utilisateurs');">Utilisateurs</button>
-        <button type="button" class="btn btn-sm btn-primary" onclick="afficherRessources();afficher_choix('Ressources');">Ressources</button>
-        <button type="button" class="btn btn-sm btn-primary" onclick="afficherReservations();afficher_choix('Réservations');">Réservations</button>
-        <button type="button" class="btn btn-sm btn-primary" onclick="afficherLignesReservations();afficher_choix('Lignes de réservation');">Lignes de réservation</button>
-        <button type="button" class="btn btn-sm btn-primary" onclick="afficherProfil(); afficher_choix('Profils');">Profils</button>
-        <button type="button" class="btn btn-sm btn-primary" onclick="afficherFonctionnalites(); afficher_choix('Fonctionnalites');">Fonctionnalites</button>
+        <button type="button" class="btn btn-sm btn-primary" onclick="afficher_choix('Utilisateurs');afficherUtilisateurs();">Utilisateurs</button>
+        <button type="button" class="btn btn-sm btn-primary" onclick="afficher_choix('Ressources');afficherRessources();">Ressources</button>
+        <button type="button" class="btn btn-sm btn-primary" onclick="afficher_choix('Réservations');afficherReservations();">Réservations</button>
+        <button type="button" class="btn btn-sm btn-primary" onclick="afficher_choix('Lignes de réservation');afficherLignesReservations();">Lignes de réservation</button>
+        <button type="button" class="btn btn-sm btn-primary" onclick="afficher_choix('Profils');afficherProfils();">Profils</button>
+        <button type="button" class="btn btn-sm btn-primary" onclick="afficher_choix('Fonctionnalites');afficherFonctionnalites();">Fonctionnalites</button>
     </p>
 </div>
 
@@ -95,7 +95,7 @@
              }
          })
 
-         function afficherProfil() {
+         function afficherProfils() {
 
              $.ajax({
                  // Home ==> Contrôleur qui va chercher dans la fonction Create dans le contrôleur Ligne_resa
@@ -108,19 +108,21 @@
                      //$('#formulaire').append(data);
                  }
              })
+         }
 
-             function afficherFonctionnalites() {
+         function afficherFonctionnalites() {
 
-                 $.ajax({
-                     // Home ==> Contrôleur qui va chercher dans la fonction Create dans le contrôleur Ligne_resa
-                     url: "/Fonctionnalites/Index",
-                     type: 'GET',
-                     // data représente les données retournées par le serveur
-                     success: function (data) {
+             $.ajax({
+                 // Home ==> Contrôleur qui va chercher dans la fonction Create dans le contrôleur Ligne_resa
+                 url: "/Fonctionnalites/Index",
+                 type: 'GET',
+                 // data représente les données retournées par le serveur
+                 success: function (data) {
 
-                         $('#results').html(data);
-                         //$('#formulaire').append(data);
-                     }
-                 })
+                     $('#results').html(data);
+                     //$('#formulaire').append(data);
+                 }
+             })
+         }
      }
 </script>
