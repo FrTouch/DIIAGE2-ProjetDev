@@ -7,17 +7,21 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ProjetWeb.DAL;
+using ProjetWeb.BL;
+using ProjetWeb.Model;
 
 namespace ProjetWeb.WEB.Controllers
 {
     public class ProfilsController : Controller
     {
-        private Projet_GestionEntities db = new Projet_GestionEntities();
-
+        //private Projet_GestionEntities db = new Projet_GestionEntities();
+        private ProfilBL BLprofil = new ProfilBL();
         // GET: Profils
         public ActionResult Index()
         {
-            return View(db.Profil.ToList());
+            List<ProfilModel> profil = new List<ProfilModel>();
+            profil = BLprofil.GetLesProfil();
+            return View(profil);
         }
 
         // GET: Profils/Details/5
@@ -27,7 +31,7 @@ namespace ProjetWeb.WEB.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Profil profil = db.Profil.Find(id);
+            ProfilModel profil = BLprofil.GetUnProfilById(id.GetValueOrDefault());
             if (profil == null)
             {
                 return HttpNotFound();
@@ -46,12 +50,13 @@ namespace ProjetWeb.WEB.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,nom")] Profil profil)
+        public ActionResult Create([Bind(Include = "nom")] ProfilModel profil)
         {
             if (ModelState.IsValid)
             {
-                db.Profil.Add(profil);
-                db.SaveChanges();
+                BLprofil.CreateProfil(profil.nom);
+                //db.Profil.Add(profil);
+                //db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +70,7 @@ namespace ProjetWeb.WEB.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Profil profil = db.Profil.Find(id);
+            ProfilModel profil = BLprofil.GetUnProfilById(id.GetValueOrDefault());
             if (profil == null)
             {
                 return HttpNotFound();
@@ -82,8 +87,9 @@ namespace ProjetWeb.WEB.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(profil).State = EntityState.Modified;
-                db.SaveChanges();
+                BLprofil.ModifierProfil(profil.id, profil.nom);
+                //db.Entry(profil).State = EntityState.Modified;
+                //db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(profil);
@@ -121,12 +127,13 @@ namespace ProjetWeb.WEB.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Profil profil = db.Profil.Find(id);
-            if (profil == null)
+            BLprofil.DeleteProfil(id.GetValueOrDefault());
+            //Profil profil = db.Profil.Find(id);
+            if (BLprofil == null)
             {
                 return HttpNotFound();
             }
-            return View(profil);
+            return View();
         }
 
         // POST: Profils/Delete/5
@@ -134,19 +141,20 @@ namespace ProjetWeb.WEB.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Profil profil = db.Profil.Find(id);
-            db.Profil.Remove(profil);
-            db.SaveChanges();
+            BLprofil.DeleteProfil(id);
+            //Profil profil = db.Profil.Find(id);
+            //db.Profil.Remove(profil);
+            //db.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }
